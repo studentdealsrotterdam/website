@@ -1,0 +1,572 @@
+    <!DOCTYPE html>
+    <html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Voor Bedrijven | Student Deals Rotterdam</title>
+        <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700;900&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --primary: #0ea5e9;
+                --primary-dark: #0369a1;
+                --accent: #1e293b;
+                --background: #f8fafc;
+                --surface: #fff;
+                --border: #e5e7eb;
+                --shadow: 0 2px 12px rgba(30,41,59,0.07);
+                --radius: 12px;
+                --transition: 0.16s cubic-bezier(.4,0,.2,1);
+            }
+            html, body {
+                height: 100%;
+            }
+            body {
+                font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background: var(--background);
+                color: var(--accent);
+                min-height: 100vh;
+            }
+            nav {
+                background: var(--surface);
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow);
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+            .nav-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 2.5rem;
+                max-width: 1200px;
+                margin: 0 auto;
+                height: 72px;
+            }
+            .logo-section {
+                display: flex;
+                align-items: center;
+            }
+            .logo-section img {
+                height: 40px;
+                width: 40px;
+                margin-right: 0.7rem;
+                border-radius: 6px;
+                box-shadow: 0 2px 8px rgba(30,41,59,0.07);
+                object-fit: cover;
+                border: 1px solid var(--border);
+            }
+            .logo-section span {
+                color: var(--accent);
+                font-size: 1.35rem;
+                font-weight: 800;
+                letter-spacing: 0.5px;
+            }
+            nav ul {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                gap: 1.5rem;
+            }
+            nav li {
+                margin: 0;
+            }
+            nav a {
+                color: var(--accent);
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1.05rem;
+                padding: 0.5rem 0.2rem;
+                border-bottom: 2px solid transparent;
+                transition: color var(--transition), border-bottom var(--transition);
+            }
+            nav a:hover, nav a:focus {
+                color: var(--primary);
+                border-bottom: 2px solid var(--primary);
+            }
+            nav a.active {
+                color: var(--primary);
+                border-bottom: 2px solid var(--primary);
+            }
+            .nav-actions {
+                display: flex;
+                align-items: center;
+                gap: 1.1rem;
+            }
+            .lang-switch {
+                display: flex;
+                align-items: center;
+                gap: 0.2rem;
+            }
+            .lang-switch button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                margin: 0 0.05rem;
+                outline: none;
+                border-radius: 3px;
+                transition: box-shadow var(--transition), border var(--transition);
+            }
+            .lang-switch button:focus, .lang-switch button:active {
+                box-shadow: 0 0 0 2px var(--primary);
+                border: 1px solid var(--primary);
+            }
+            .lang-switch img {
+                width: 24px;
+                height: 16px;
+                border-radius: 2px;
+                border: 1px solid var(--border);
+                display: block;
+            }
+            .business-hero {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                min-height: 54vh;
+                background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+                color: var(--accent);
+                text-align: left;
+                padding: 3.5rem 1rem 2.5rem 1rem;
+                gap: 3.5rem;
+                border-bottom: 1px solid var(--border);
+            }
+            .business-hero-content {
+                max-width: 540px;
+            }
+            .business-hero h1 {
+                font-size: 2.2rem;
+                font-weight: 900;
+                margin-bottom: 1rem;
+                letter-spacing: 0.5px;
+                color: var(--primary-dark);
+            }
+            .business-hero p {
+                font-size: 1.18rem;
+                margin-bottom: 2.2rem;
+                color: #334155;
+                line-height: 1.6;
+            }
+            .cta-btn {
+                background: var(--primary);
+                color: #fff;
+                border: none;
+                border-radius: var(--radius);
+                padding: 1rem 2.4rem;
+                font-size: 1.08rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+                text-decoration: none;
+                text-align: center;
+                box-shadow: 0 2px 8px rgba(30,41,59,0.07);
+                letter-spacing: 0.2px;
+            }
+            .cta-btn:hover, .cta-btn:focus {
+                background: var(--primary-dark);
+                color: #fff;
+                box-shadow: 0 4px 16px rgba(30,41,59,0.10);
+            }
+            .business-hero-image {
+                flex: 0 0 320px;
+                max-width: 320px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .business-hero-image img {
+                width: 100%;
+                border-radius: 14px;
+                box-shadow: 0 6px 32px rgba(30,41,59,0.13);
+                border: 2px solid var(--border);
+                object-fit: cover;
+            }
+            .business-stats {
+                display: flex;
+                gap: 2.5rem;
+                margin-bottom: 2.5rem;
+                margin-top: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            .business-stat-card {
+                background: #e0f2fe;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(30,41,59,0.07);
+                padding: 1.1rem 1.3rem;
+                min-width: 180px;
+                text-align: center;
+                border: 1px solid var(--border);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .business-stat-card i {
+                font-size: 2.1rem;
+                color: var(--primary);
+                margin-bottom: 0.5rem;
+            }
+            .business-stat-number {
+                font-size: 2.1rem;
+                font-weight: 900;
+                color: var(--primary-dark);
+                margin-bottom: 0.2rem;
+                letter-spacing: 1px;
+            }
+            .business-stat-label {
+                font-size: 1.05rem;
+                color: #334155;
+                font-weight: 600;
+            }
+            .business-section {
+                max-width: 900px;
+                margin: 2.5rem auto;
+                background: var(--surface);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+                padding: 2.5rem 2rem;
+                color: #334155;
+                font-size: 1.11rem;
+            }
+            .business-section h2 {
+                color: var(--primary-dark);
+                font-size: 1.5rem;
+                font-weight: 800;
+                margin-top: 0;
+                margin-bottom: 1.2rem;
+                text-align: center;
+            }
+            .business-benefits {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                justify-content: center;
+                margin-bottom: 2.5rem;
+            }
+            .business-benefit-card {
+                background: #f1f5f9;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(30,41,59,0.07);
+                padding: 1.3rem 1.1rem;
+                width: 250px;
+                text-align: center;
+                border: 1px solid var(--border);
+            }
+            .business-benefit-card i {
+                font-size: 2.1rem;
+                color: var(--primary);
+                margin-bottom: 0.7rem;
+            }
+            .business-benefit-card h3 {
+                font-size: 1.08rem;
+                color: var(--primary-dark);
+                margin: 0.3rem 0 0.5rem 0;
+                font-weight: 700;
+            }
+            .business-benefit-card p {
+                font-size: 1rem;
+                color: #475569;
+                margin: 0;
+            }
+            .business-contact {
+                text-align: center;
+                margin-top: 2.5rem;
+            }
+            .business-contact a.cta-btn {
+                padding: 0.7rem 2.2rem;
+                font-size: 1.05rem;
+            }
+            .business-contact p {
+                margin-top: 1.2rem;
+                color: #64748b;
+                font-size: 1rem;
+            }
+            footer {
+                background: #f1f5f9;
+                padding: 2rem 0 1rem 0;
+                text-align: center;
+                color: #64748b;
+                font-size: 1rem;
+                margin-top: 3rem;
+                border-top: 1px solid var(--border);
+            }
+            .footer-links {
+                margin-bottom: 0.7rem;
+            }
+            .footer-links a {
+                color: var(--primary);
+                text-decoration: none;
+                margin: 0 0.5rem;
+                font-weight: 600;
+            }
+            .footer-links a:hover, .footer-links a:focus {
+                text-decoration: underline;
+            }
+            .footer-socials a {
+                color: var(--primary);
+                margin: 0 0.5rem;
+                font-size: 1.25rem;
+                transition: color var(--transition);
+            }
+            .footer-socials a:hover, .footer-socials a:focus {
+                color: var(--primary-dark);
+            }
+            @media (max-width: 1100px) {
+                .business-hero {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 2rem;
+                }
+                .business-hero-content {
+                    max-width: 100%;
+                }
+                .business-stats {
+                    justify-content: center;
+                }
+            }
+            @media (max-width: 700px) {
+                .business-section {
+                    padding: 1.2rem 0.5rem;
+                }
+                .business-benefit-card {
+                    width: 95vw;
+                    max-width: 320px;
+                }
+                .business-stats {
+                    gap: 1rem;
+                }
+            }
+            @media (max-width: 600px) {
+                .nav-container {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    padding: 0 1rem;
+                    height: auto;
+                }
+                .business-hero {
+                    padding: 2rem 0.5rem 1.5rem 0.5rem;
+                }
+                .nav-actions {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                .business-hero-image {
+                    max-width: 90vw;
+                }
+                .business-stats {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+            }
+        </style>
+        <!-- Font Awesome for social icons and deal icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="./media/ChatGPT Image 17 jun 2025, 16_11_35.png" alt="Logo">
+                    <span>Student Deals Rotterdam</span>
+                </div>
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="">Student</a></li>
+                    <li><a href="business.html" class="active">Business</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="lang-switch" title="Taal / Language">
+                        <button id="nl-btn" aria-label="Nederlands">
+                            <img src="https://flagcdn.com/nl.svg" alt="NL">
+                        </button>
+                        <button id="en-btn" aria-label="English">
+                            <img src="https://flagcdn.com/gb.svg" alt="EN">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="business-hero" id="Business">
+            <div class="business-hero-content">
+                <h1 id="business-hero-title">Voor Bedrijven</h1>
+                <p id="business-hero-desc">
+                    Bereik duizenden studenten in Rotterdam en vergroot je zichtbaarheid.<br>
+                    Voeg jouw deal toe en word onderdeel van hét studentenplatform van de stad!
+                </p>
+                <div class="business-stats" id="business-stats">
+                    <div class="business-stat-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <span class="business-stat-number" id="students-counter">0</span>
+                        <span class="business-stat-label" id="students-label">Studenten in Rotterdam</span>
+                    </div>
+                    <div class="business-stat-card">
+                        <i class="fas fa-university"></i>
+                        <span class="business-stat-number" id="institutions-counter">0</span>
+                        <span class="business-stat-label" id="institutions-label">Onderwijsinstellingen</span>
+                    </div>
+                </div>
+                <a href="#contact" class="cta-btn" id="business-cta-btn">Deal toevoegen</a>
+            </div>
+            <div class="business-hero-image">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Rotterdam City">
+            </div>
+        </div>
+        <section class="business-section">
+            <h2 id="business-benefits-title">Waarom samenwerken met Student Deals Rotterdam?</h2>
+            <div class="business-benefits">
+                <div class="business-benefit-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3 id="benefit1-title">Directe zichtbaarheid</h3>
+                    <p id="benefit1-desc">Jouw deal wordt direct zichtbaar voor duizenden studenten in Rotterdam.</p>
+                </div>
+                <div class="business-benefit-card">
+                    <i class="fas fa-users"></i>
+                    <h3 id="benefit2-title">Gerichte doelgroep</h3>
+                    <p id="benefit2-desc">Bereik studenten die actief op zoek zijn naar lokale aanbiedingen.</p>
+                </div>
+                <div class="business-benefit-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3 id="benefit3-title">Meer omzet</h3>
+                    <p id="benefit3-desc">Trek nieuwe klanten aan en verhoog je omzet met exclusieve studentendeals.</p>
+                </div>
+                <div class="business-benefit-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3 id="benefit4-title">Eenvoudige samenwerking</h3>
+                    <p id="benefit4-desc">Aanmelden is gratis en laagdrempelig. Wij helpen je graag verder!</p>
+                </div>
+            </div>
+            <div class="business-contact" id="contact">
+                <a href="mailto:info@studentdealsrotterdam.nl?subject=Nieuwe%20deal%20toevoegen" class="cta-btn" id="business-contact-btn">Neem contact op</a>
+                <p id="business-contact-desc">
+                    Of stuur direct een e-mail naar <a href="mailto:info@studentdealsrotterdam.nl">info@studentdealsrotterdam.nl</a>.<br>
+                    Wij nemen zo snel mogelijk contact met je op!
+                </p>
+            </div>
+        </section>
+        <footer>
+            <div class="footer-links">
+                <a href="https://studentdealsrotterdam.nl/privacy">Privacybeleid</a> | 
+                <a href="https://studentdealsrotterdam.nl/algemene-voorwaarden">Algemene Voorwaarden</a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/studentdealsrotterdam" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="mailto:info@studentdealsrotterdam.nl" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="margin-top:1.2rem;">&copy; 2023 Student Deals Rotterdam</p>
+        </footer>
+        <script>
+            // Simple translation dictionary
+            const translations = {
+                nl: {
+                    businessHeroTitle: "Voor Bedrijven",
+                    businessHeroDesc: "Bereik duizenden studenten in Rotterdam en vergroot je zichtbaarheid.<br>Voeg jouw deal toe en word onderdeel van hét studentenplatform van de stad!",
+                    businessCtaBtn: "Deal toevoegen",
+                    businessBenefitsTitle: "Waarom samenwerken met Student Deals Rotterdam?",
+                    benefit1Title: "Directe zichtbaarheid",
+                    benefit1Desc: "Jouw deal wordt direct zichtbaar voor duizenden studenten in Rotterdam.",
+                    benefit2Title: "Gerichte doelgroep",
+                    benefit2Desc: "Bereik studenten die actief op zoek zijn naar lokale aanbiedingen.",
+                    benefit3Title: "Meer omzet",
+                    benefit3Desc: "Trek nieuwe klanten aan en verhoog je omzet met exclusieve studentendeals.",
+                    benefit4Title: "Eenvoudige samenwerking",
+                    benefit4Desc: "Aanmelden is gratis en laagdrempelig. Wij helpen je graag verder!",
+                    businessContactBtn: "Neem contact op",
+                    businessContactDesc: "Of stuur direct een e-mail naar <a href=\"mailto:info@studentdealsrotterdam.nl\">info@studentdealsrotterdam.nl</a>.<br>Wij nemen zo snel mogelijk contact met je op!",
+                    studentsLabel: "Studenten in Rotterdam",
+                    institutionsLabel: "Onderwijsinstellingen",
+                    dealsLabel: "Actieve deals",
+                    reachLabel: "Gem. maandelijkse bereik"
+                },
+                en: {
+                    businessHeroTitle: "For Businesses",
+                    businessHeroDesc: "Reach thousands of students in Rotterdam and increase your visibility.<br>Add your deal and become part of the city's student platform!",
+                    businessCtaBtn: "Add your deal",
+                    businessBenefitsTitle: "Why collaborate with Student Deals Rotterdam?",
+                    benefit1Title: "Instant visibility",
+                    benefit1Desc: "Your deal is instantly visible to thousands of students in Rotterdam.",
+                    benefit2Title: "Targeted audience",
+                    benefit2Desc: "Reach students actively looking for local offers.",
+                    benefit3Title: "More revenue",
+                    benefit3Desc: "Attract new customers and increase your revenue with exclusive student deals.",
+                    benefit4Title: "Easy collaboration",
+                    benefit4Desc: "Signing up is free and easy. We are happy to help you!",
+                    businessContactBtn: "Contact us",
+                    businessContactDesc: "Or send an email directly to <a href=\"mailto:info@studentdealsrotterdam.nl\">info@studentdealsrotterdam.nl</a>.<br>We will get back to you as soon as possible!",
+                    studentsLabel: "Students in Rotterdam",
+                    institutionsLabel: "Educational institutions",
+                    dealsLabel: "Active deals",
+                    reachLabel: "Avg. monthly reach"
+                }
+            };
+
+            function setLanguage(lang) {
+                document.getElementById('business-hero-title').innerHTML = translations[lang].businessHeroTitle;
+                document.getElementById('business-hero-desc').innerHTML = translations[lang].businessHeroDesc;
+                document.getElementById('business-cta-btn').innerHTML = translations[lang].businessCtaBtn;
+                document.getElementById('business-benefits-title').innerHTML = translations[lang].businessBenefitsTitle;
+                document.getElementById('benefit1-title').innerHTML = translations[lang].benefit1Title;
+                document.getElementById('benefit1-desc').innerHTML = translations[lang].benefit1Desc;
+                document.getElementById('benefit2-title').innerHTML = translations[lang].benefit2Title;
+                document.getElementById('benefit2-desc').innerHTML = translations[lang].benefit2Desc;
+                document.getElementById('benefit3-title').innerHTML = translations[lang].benefit3Title;
+                document.getElementById('benefit3-desc').innerHTML = translations[lang].benefit3Desc;
+                document.getElementById('benefit4-title').innerHTML = translations[lang].benefit4Title;
+                document.getElementById('benefit4-desc').innerHTML = translations[lang].benefit4Desc;
+                document.getElementById('business-contact-btn').innerHTML = translations[lang].businessContactBtn;
+                document.getElementById('business-contact-desc').innerHTML = translations[lang].businessContactDesc;
+                document.getElementById('students-label').innerHTML = translations[lang].studentsLabel;
+                document.getElementById('institutions-label').innerHTML = translations[lang].institutionsLabel;
+                document.getElementById('deals-label').innerHTML = translations[lang].dealsLabel;
+                document.getElementById('reach-label').innerHTML = translations[lang].reachLabel;
+                document.documentElement.lang = lang;
+            }
+
+            document.getElementById('nl-btn').addEventListener('click', function() {
+                setLanguage('nl');
+            });
+            document.getElementById('en-btn').addEventListener('click', function() {
+                setLanguage('en');
+            });
+
+            // Animated counters
+            function animateCounter(id, start, end, duration, suffix = "") {
+                const el = document.getElementById(id);
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    el.textContent = value.toLocaleString() + suffix;
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        el.textContent = end.toLocaleString() + suffix;
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            // Example stats (update as needed)
+            const stats = {
+                students: 112000, // Source: CBS, approx. 2023
+                institutions: 9,  // Erasmus, Hogeschool Rotterdam, Codarts, etc.
+                deals: 120,       // Example number, update as needed
+                reach: 35000      // Example monthly reach, update as needed
+            };
+
+            // Animate on load
+            window.addEventListener('DOMContentLoaded', function() {
+                animateCounter('students-counter', 2000, stats.students, 1800, "");
+                animateCounter('institutions-counter', 0, stats.institutions, 900, "");
+                animateCounter('deals-counter', 0, stats.deals, 1200, "");
+                animateCounter('reach-counter', 0, stats.reach, 1500, "");
+            });
+        </script>
+    </body>
+    </html>
