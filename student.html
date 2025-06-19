@@ -1,0 +1,736 @@
+    <!DOCTYPE html>
+    <html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Deals | Student Deals Rotterdam</title>
+        <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700;900&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            :root {
+                --primary: #0ea5e9;
+                --primary-dark: #0369a1;
+                --accent: #1e293b;
+                --background: #f8fafc;
+                --surface: #fff;
+                --border: #e5e7eb;
+                --shadow: 0 2px 12px rgba(30,41,59,0.07);
+                --radius: 14px;
+                --transition: 0.16s cubic-bezier(.4,0,.2,1);
+                --gradient: linear-gradient(120deg, #0ea5e9 0%, #0369a1 100%);
+            }
+            html, body {
+                height: 100%;
+            }
+            body {
+                font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background: var(--background);
+                color: var(--accent);
+                min-height: 100vh;
+            }
+            nav {
+                background: var(--surface);
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow);
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+            .nav-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 2.5rem;
+                max-width: 1200px;
+                margin: 0 auto;
+                height: 72px;
+            }
+            .logo-section {
+                display: flex;
+                align-items: center;
+            }
+            .logo-section img {
+                height: 44px;
+                width: 44px;
+                margin-right: 0.8rem;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(30,41,59,0.09);
+                object-fit: cover;
+                border: 1px solid var(--border);
+                background: #fff;
+            }
+            .logo-section span {
+                color: var(--primary-dark);
+                font-size: 1.5rem;
+                font-weight: 900;
+                letter-spacing: 0.5px;
+                text-shadow: 0 2px 8px rgba(14,165,233,0.08);
+            }
+            nav ul {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                gap: 1.7rem;
+            }
+            nav li {
+                margin: 0;
+            }
+            nav a {
+                color: var(--accent);
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1.08rem;
+                padding: 0.5rem 0.2rem;
+                border-bottom: 2px solid transparent;
+                transition: color var(--transition), border-bottom var(--transition);
+            }
+            nav a:hover, nav a:focus {
+                color: var(--primary);
+                border-bottom: 2px solid var(--primary);
+            }
+            nav a.active {
+                color: var(--primary);
+                border-bottom: 2px solid var(--primary);
+            }
+            .nav-actions {
+                display: flex;
+                align-items: center;
+                gap: 1.1rem;
+            }
+            .lang-switch {
+                display: flex;
+                align-items: center;
+                gap: 0.2rem;
+            }
+            .lang-switch button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                margin: 0 0.05rem;
+                outline: none;
+                border-radius: 3px;
+                transition: box-shadow var(--transition), border var(--transition);
+            }
+            .lang-switch button:focus, .lang-switch button:active {
+                box-shadow: 0 0 0 2px var(--primary);
+                border: 1px solid var(--primary);
+            }
+            .lang-switch img {
+                width: 24px;
+                height: 16px;
+                border-radius: 2px;
+                border: 1px solid var(--border);
+                display: block;
+            }
+            .student-hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 38vh;
+                background: var(--gradient);
+                color: #fff;
+                text-align: center;
+                padding: 4rem 1rem 2.5rem 1rem;
+                border-bottom: 1px solid var(--border);
+                position: relative;
+                overflow: hidden;
+            }
+            .student-hero::before {
+                content: "";
+                position: absolute;
+                left: 0; top: 0; right: 0; bottom: 0;
+                z-index: 0;
+                opacity: 0.18;
+                background: url('data:image/svg+xml;utf8,<svg width="1920" height="400" viewBox="0 0 1920 400" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="1920" height="400" fill="none"/><g><path d="M0 350 L100 350 L100 320 L180 320 L180 350 L300 350 L300 270 L340 270 L340 350 L400 350 L400 250 L440 250 L440 350 L500 350 L500 200 L540 200 L540 350 L600 350 L600 180 L640 180 L640 350 L700 350 L700 220 L740 220 L740 350 L800 350 L800 150 L840 150 L840 350 L900 350 L900 100 L940 100 L940 350 L1000 350 L1000 180 L1040 180 L1040 350 L1100 350 L1100 220 L1140 220 L1140 350 L1200 350 L1200 200 L1240 200 L1240 350 L1300 350 L1300 250 L1340 250 L1340 350 L1400 350 L1400 270 L1440 270 L1440 350 L1500 350 L1500 320 L1580 320 L1580 350 L1700 350 L1700 300 L1740 300 L1740 350 L1920 350 L1920 400 L0 400 Z" fill="%230369a1"/><rect x="900" y="60" width="40" height="40" fill="%230ea5e9"/><rect x="1000" y="140" width="40" height="40" fill="%230ea5e9"/><rect x="1200" y="160" width="40" height="40" fill="%230ea5e9"/><rect x="800" y="110" width="40" height="40" fill="%230ea5e9"/></g></svg>') bottom center/cover no-repeat;
+            }
+            .student-hero-content {
+                max-width: 600px;
+                position: relative;
+                z-index: 1;
+            }
+            .student-hero h1 {
+                font-size: 2.5rem;
+                font-weight: 900;
+                margin-bottom: 1.2rem;
+                letter-spacing: 0.5px;
+                color: #fff;
+                text-shadow: 0 2px 12px rgba(30,41,59,0.13);
+            }
+            .student-hero p {
+                font-size: 1.22rem;
+                margin-bottom: 2.2rem;
+                color: #e0f2fe;
+                line-height: 1.7;
+                text-shadow: 0 2px 8px rgba(30,41,59,0.10);
+            }
+            .deals-section {
+                max-width: 1200px;
+                margin: 3rem auto 2rem auto;
+                padding: 0 1rem;
+            }
+            .deals-title {
+                color: var(--primary-dark);
+                font-size: 2rem;
+                font-weight: 900;
+                margin-bottom: 2rem;
+                text-align: center;
+                letter-spacing: 0.2px;
+            }
+            /* Filter styles */
+            .deals-filter {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-bottom: 2.2rem;
+                flex-wrap: wrap;
+            }
+            .deals-filter button {
+                background: var(--surface);
+                color: var(--primary-dark);
+                border: 1.5px solid var(--primary);
+                border-radius: 8px;
+                padding: 0.5rem 1.2rem;
+                font-size: 1rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background var(--transition), color var(--transition), border var(--transition);
+            }
+            .deals-filter button.active {
+                background: var(--primary);
+                color: #fff;
+                border: 1.5px solid var(--primary-dark);
+            }
+            .deals-filter button:not(.active) {
+                background: var(--surface);
+                color: var(--primary-dark);
+                border: 1.5px solid var(--primary);
+            }
+            .deals-filter button:focus {
+                outline: 2px solid var(--primary);
+            }
+            .deals-filter .reset-btn {
+                background: #f3f4f6;
+                color: #94a3b8;
+                border: 1.5px solid #e5e7eb;
+                font-weight: 600;
+                margin-left: 1.5rem;
+                opacity: 0.7;
+                box-shadow: none;
+                transition: background 0.15s, color 0.15s, border 0.15s, opacity 0.15s;
+            }
+            .deals-filter .reset-btn:hover,
+            .deals-filter .reset-btn:focus {
+                background: #f3f4f6;
+                color: #64748b;
+                border: 1.5px solid #e5e7eb;
+                opacity: 1;
+            }
+            .deals-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+                justify-items: start;
+            }
+            @media (max-width: 900px) {
+                .deals-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            @media (max-width: 600px) {
+                .nav-container {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    padding: 0 1rem;
+                    height: auto;
+                }
+                .nav-actions {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                .deals-grid {
+                    grid-template-columns: 1fr;
+                    gap: 1.2rem;
+                }
+                .student-hero {
+                    padding: 2.2rem 0.5rem 1.7rem 0.5rem;
+                }
+            }
+            /* Remove single-card centering */
+            .deals-grid.single-card {
+                /* No special centering, keep left-aligned */
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .deals-grid.single-card > .deal-card {
+                grid-column: auto;
+            }
+            .deal-card {
+                background: var(--surface);
+                border-radius: 18px;
+                box-shadow: 0 6px 32px rgba(14,165,233,0.11), 0 2px 8px rgba(30,41,59,0.07);
+                border: 2px solid var(--primary);
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                transition: box-shadow 0.18s, transform 0.13s;
+                position: relative;
+            }
+            .deal-card:hover {
+                box-shadow: 0 12px 36px rgba(14,165,233,0.18), 0 4px 18px rgba(30,41,59,0.13);
+                transform: translateY(-6px) scale(1.035);
+                z-index: 2;
+            }
+            .deal-image {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                background: #e0f2fe;
+            }
+            .deal-content {
+                padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .deal-title {
+                font-size: 1.25rem;
+                font-weight: 800;
+                color: var(--primary-dark);
+                margin-bottom: 0.7rem;
+                letter-spacing: 0.2px;
+            }
+            .deal-desc {
+                color: #334155;
+                font-size: 1.07rem;
+                margin-bottom: 1.1rem;
+                flex: 1;
+            }
+            .deal-meta {
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                font-size: 0.98rem;
+                color: #64748b;
+                margin-bottom: 0.7rem;
+            }
+            .deal-badge {
+                background: var(--primary);
+                color: #fff;
+                font-size: 0.93rem;
+                font-weight: 700;
+                border-radius: 8px;
+                padding: 0.2rem 0.7rem;
+                margin-right: 0.5rem;
+                display: inline-block;
+            }
+            .deal-link {
+                background: var(--primary-dark);
+                color: #fff;
+                border: none;
+                border-radius: 12px;
+                padding: 0.7rem 1.7rem;
+                font-size: 1.05rem;
+                font-weight: 800;
+                cursor: pointer;
+                text-decoration: none;
+                text-align: center;
+                box-shadow: 0 2px 12px rgba(30,41,59,0.10);
+                letter-spacing: 0.2px;
+                transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform 0.13s;
+            }
+            .deal-link:hover, .deal-link:focus {
+                background: var(--primary);
+                color: #fff;
+                box-shadow: 0 4px 18px rgba(30,41,59,0.13);
+                transform: translateY(-2px) scale(1.03);
+            }
+            footer {
+                text-align: center;
+                padding: 2.2rem 1rem 1.2rem 1rem;
+                background: #f1f5f9;
+                color: #64748b;
+                font-size: 1rem;
+                margin-top: 2.5rem;
+            }
+            .footer-links {
+                margin-bottom: 0.7rem;
+            }
+            .footer-links a {
+                color: #64748b;
+                text-decoration: none;
+                margin: 0 0.5rem;
+                font-weight: 600;
+            }
+            .footer-links a:hover {
+                color: var(--primary);
+            }
+            .footer-socials {
+                margin-bottom: 0.7rem;
+            }
+            .footer-socials a {
+                color: #64748b;
+                margin: 0 0.5rem;
+                font-size: 1.3rem;
+                transition: color 0.15s;
+            }
+            .footer-socials a:hover {
+                color: var(--primary);
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="./media/ChatGPT Image 17 jun 2025, 16_11_35.png" alt="Logo">
+                    <span>Student Deals Rotterdam</span>
+                </div>
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="student.html" class="active">Student</a></li>
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="lang-switch" title="Taal / Language">
+                        <button id="nl-btn" aria-label="Nederlands">
+                            <img src="https://flagcdn.com/nl.svg" alt="NL">
+                        </button>
+                        <button id="en-btn" aria-label="English">
+                            <img src="https://flagcdn.com/gb.svg" alt="EN">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="student-hero">
+            <div class="student-hero-content">
+                <h1 id="student-hero-title">Studentendeals in Rotterdam</h1>
+                <p id="student-hero-desc">
+                    Ontdek de beste studentenkortingen, acties en exclusieve deals in Rotterdam.<br>
+                    Profiteer als student van unieke aanbiedingen bij lokale bedrijven!
+                </p>
+            </div>
+        </div>
+        <section class="deals-section">
+            <h2 class="deals-title" id="deals-title">Alle deals</h2>
+            <div class="deals-filter" id="deals-filter">
+                <button class="active" data-category="all" id="filter-all">Alles</button>
+                <button data-category="restaurant" id="filter-restaurant">Restaurant</button>
+                <button data-category="bar" id="filter-bar">Bar</button>
+                <button data-category="fitness" id="filter-fitness">Fitness</button>
+                <button data-category="cinema" id="filter-cinema">Bioscoop</button>
+                <button data-category="shop" id="filter-shop">Winkel</button>
+                <button data-category="care" id="filter-care">Verzorging</button>
+                <button data-category="coffee" id="filter-coffee">Koffie</button>
+                <button data-category="vegan" id="filter-vegan">Vegan</button>
+                <button data-category="takeaway" id="filter-takeaway">Afhalen</button>
+                <button class="reset-btn" id="filter-reset">Reset</button>
+            </div>
+            <div class="deals-grid" id="deals-list">
+                <!-- Example deals, you can add more -->
+                <div class="deal-card" data-category="restaurant takeaway">
+                    <img class="deal-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Pizzeria Napoli">
+                    <div class="deal-content">
+                        <div class="deal-title" id="deal1-title">2e Pizza voor €1</div>
+                        <div class="deal-meta">
+                            <span class="deal-badge" id="deal1-badge">Eten & Drinken</span>
+                            <i class="fas fa-map-marker-alt"></i> Pizzeria Napoli
+                        </div>
+                        <div class="deal-desc" id="deal1-desc">
+                            Bestel een pizza en krijg de tweede pizza voor slechts €1! Alleen op vertoon van je studentenpas.
+                        </div>
+                        <a href="student/pizzeria-napoli.html" class="deal-link" id="deal1-link">Bekijk deal</a>
+                    </div>
+                </div>
+                <div class="deal-card" data-category="fitness">
+                    <img class="deal-image" src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Fitness Rotterdam">
+                    <div class="deal-content">
+                        <div class="deal-title" id="deal2-title">Gratis proefweek fitness</div>
+                        <div class="deal-meta">
+                            <span class="deal-badge" id="deal2-badge">Sport</span>
+                            <i class="fas fa-map-marker-alt"></i> Fitness Rotterdam
+                        </div>
+                        <div class="deal-desc" id="deal2-desc">
+                            Train een hele week gratis bij Fitness Rotterdam. Aanmelden verplicht, alleen voor studenten.
+                        </div>
+                        <a href="#" class="deal-link" id="deal2-link">Bekijk deal</a>
+                    </div>
+                </div>
+                <div class="deal-card" data-category="cinema">
+                    <img class="deal-image" src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=600&q=80" alt="Bioscoop Pathé">
+                    <div class="deal-content">
+                        <div class="deal-title" id="deal3-title">Bioscoopkaartje €7,50</div>
+                        <div class="deal-meta">
+                            <span class="deal-badge" id="deal3-badge">Entertainment</span>
+                            <i class="fas fa-map-marker-alt"></i> Pathé Schouwburgplein
+                        </div>
+                        <div class="deal-desc" id="deal3-desc">
+                            Op vertoon van je studentenpas betaal je slechts €7,50 voor een filmkaartje bij Pathé Rotterdam.
+                        </div>
+                        <a href="#" class="deal-link" id="deal3-link">Bekijk deal</a>
+                    </div>
+                </div>
+                <div class="deal-card" data-category="care">
+                    <img class="deal-image" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Kapper Stylez">
+                    <div class="deal-content">
+                        <div class="deal-title" id="deal4-title">20% korting op knippen</div>
+                        <div class="deal-meta">
+                            <span class="deal-badge" id="deal4-badge">Verzorging</span>
+                            <i class="fas fa-map-marker-alt"></i> Kapper Stylez
+                        </div>
+                        <div class="deal-desc" id="deal4-desc">
+                            Studenten krijgen 20% korting op een knipbeurt. Maak snel een afspraak!
+                        </div>
+                        <a href="#" class="deal-link" id="deal4-link">Bekijk deal</a>
+                    </div>
+                </div>
+                <div class="deal-card" data-category="shop">
+                    <img class="deal-image" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Boekhandel Donner">
+                    <div class="deal-content">
+                        <div class="deal-title" id="deal5-title">10% korting op studieboeken</div>
+                        <div class="deal-meta">
+                            <span class="deal-badge" id="deal5-badge">Winkelen</span>
+                            <i class="fas fa-map-marker-alt"></i> Boekhandel Donner
+                        </div>
+                        <div class="deal-desc" id="deal5-desc">
+                            Op vertoon van je studentenpas ontvang je 10% korting op alle studieboeken.
+                        </div>
+                        <a href="#" class="deal-link" id="deal5-link">Bekijk deal</a>
+                    </div>
+                </div>
+                <div class="deal-card" data-category="coffee vegan">
+                    <img class="deal-image" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Coffee Company">
+                    <div class="deal-content">
+                        <div class="deal-title" id="deal6-title">Gratis koffie bij ontbijt</div>
+                        <div class="deal-meta">
+                            <span class="deal-badge" id="deal6-badge">Eten & Drinken</span>
+                            <i class="fas fa-map-marker-alt"></i> Coffee Company
+                        </div>
+                        <div class="deal-desc" id="deal6-desc">
+                            Bestel een ontbijt en krijg een gratis koffie naar keuze. Alleen voor studenten.
+                        </div>
+                        <a href="#" class="deal-link" id="deal6-link">Bekijk deal</a>
+                    </div>
+                </div>
+                <!-- Example bar deal -->
+                <div class="deal-card" data-category="bar takeaway">
+                    <img class="deal-image" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Bar Example">
+                    <div class="deal-content">
+                        <div class="deal-title" id="deal7-title">Happy Hour: 2 voor 1 bier</div>
+                        <div class="deal-meta">
+                            <span class="deal-badge" id="deal7-badge">Bar</span>
+                            <i class="fas fa-map-marker-alt"></i> Bar Rotterdam
+                        </div>
+                        <div class="deal-desc" id="deal7-desc">
+                            Elke donderdag tussen 17:00 en 19:00 uur: 2 bier voor de prijs van 1 op vertoon van je studentenpas.
+                        </div>
+                        <a href="#" class="deal-link" id="deal7-link">Bekijk deal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer-links">
+                <a href="https://studentdealsrotterdam.nl/privacy">Privacybeleid</a> | 
+                <a href="https://studentdealsrotterdam.nl/algemene-voorwaarden">Algemene Voorwaarden</a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/studentdealsrotterdam" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="mailto:info@studentdealsrotterdam.nl" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="margin-top:1.2rem;">&copy; 2025 Student Deals Rotterdam</p>
+        </footer>
+        <script>
+            // Simple translation dictionary
+            const translations = {
+                nl: {
+                    studentHeroTitle: "Studentendeals in Rotterdam",
+                    studentHeroDesc: "Ontdek de beste studentenkortingen, acties en exclusieve deals in Rotterdam.<br>Profiteer als student van unieke aanbiedingen bij lokale bedrijven!",
+                    dealsTitle: "Alle deals",
+                    filterAll: "Alles",
+                    filterRestaurant: "Restaurant",
+                    filterBar: "Bar",
+                    filterFitness: "Fitness",
+                    filterCinema: "Bioscoop",
+                    filterShop: "Winkel",
+                    filterCare: "Verzorging",
+                    filterCoffee: "Koffie",
+                    filterVegan: "Vegan",
+                    filterTakeaway: "Afhalen",
+                    filterReset: "Reset",
+                    deal1Title: "2e Pizza voor €1",
+                    deal1Badge: "Eten & Drinken",
+                    deal1Desc: "Bestel een pizza en krijg de tweede pizza voor slechts €1! Alleen op vertoon van je studentenpas.",
+                    deal1Link: "Bekijk deal",
+                    deal2Title: "Gratis proefweek fitness",
+                    deal2Badge: "Sport",
+                    deal2Desc: "Train een hele week gratis bij Fitness Rotterdam. Aanmelden verplicht, alleen voor studenten.",
+                    deal2Link: "Bekijk deal",
+                    deal3Title: "Bioscoopkaartje €7,50",
+                    deal3Badge: "Entertainment",
+                    deal3Desc: "Op vertoon van je studentenpas betaal je slechts €7,50 voor een filmkaartje bij Pathé Rotterdam.",
+                    deal3Link: "Bekijk deal",
+                    deal4Title: "20% korting op knippen",
+                    deal4Badge: "Verzorging",
+                    deal4Desc: "Studenten krijgen 20% korting op een knipbeurt. Maak snel een afspraak!",
+                    deal4Link: "Bekijk deal",
+                    deal5Title: "10% korting op studieboeken",
+                    deal5Badge: "Winkelen",
+                    deal5Desc: "Op vertoon van je studentenpas ontvang je 10% korting op alle studieboeken.",
+                    deal5Link: "Bekijk deal",
+                    deal6Title: "Gratis koffie bij ontbijt",
+                    deal6Badge: "Eten & Drinken",
+                    deal6Desc: "Bestel een ontbijt en krijg een gratis koffie naar keuze. Alleen voor studenten.",
+                    deal6Link: "Bekijk deal",
+                    deal7Title: "Happy Hour: 2 voor 1 bier",
+                    deal7Badge: "Bar",
+                    deal7Desc: "Elke donderdag tussen 17:00 en 19:00 uur: 2 bier voor de prijs van 1 op vertoon van je studentenpas.",
+                    deal7Link: "Bekijk deal"
+                },
+                en: {
+                    studentHeroTitle: "Student Deals in Rotterdam",
+                    studentHeroDesc: "Discover the best student discounts, promotions and exclusive deals in Rotterdam.<br>Enjoy unique offers at local businesses as a student!",
+                    dealsTitle: "All deals",
+                    filterAll: "All",
+                    filterRestaurant: "Restaurant",
+                    filterBar: "Bar",
+                    filterFitness: "Fitness",
+                    filterCinema: "Cinema",
+                    filterShop: "Shop",
+                    filterCare: "Care",
+                    filterCoffee: "Coffee",
+                    filterVegan: "Vegan",
+                    filterTakeaway: "Takeaway",
+                    filterReset: "Reset",
+                    deal1Title: "2nd Pizza for €1",
+                    deal1Badge: "Food & Drinks",
+                    deal1Desc: "Order a pizza and get the second pizza for just €1! Only with your student card.",
+                    deal1Link: "View deal",
+                    deal2Title: "Free trial week fitness",
+                    deal2Badge: "Sports",
+                    deal2Desc: "Train for a whole week for free at Fitness Rotterdam. Registration required, students only.",
+                    deal2Link: "View deal",
+                    deal3Title: "Cinema ticket €7.50",
+                    deal3Badge: "Entertainment",
+                    deal3Desc: "Show your student card and pay only €7.50 for a movie ticket at Pathé Rotterdam.",
+                    deal3Link: "View deal",
+                    deal4Title: "20% off haircut",
+                    deal4Badge: "Care",
+                    deal4Desc: "Students get 20% discount on a haircut. Book your appointment now!",
+                    deal4Link: "View deal",
+                    deal5Title: "10% off study books",
+                    deal5Badge: "Shopping",
+                    deal5Desc: "Show your student card and get 10% off all study books.",
+                    deal5Link: "View deal",
+                    deal6Title: "Free coffee with breakfast",
+                    deal6Badge: "Food & Drinks",
+                    deal6Desc: "Order breakfast and get a free coffee of your choice. Students only.",
+                    deal6Link: "View deal",
+                    deal7Title: "Happy Hour: 2 for 1 beer",
+                    deal7Badge: "Bar",
+                    deal7Desc: "Every Thursday between 17:00 and 19:00: 2 beers for the price of 1 with your student card.",
+                    deal7Link: "View deal"
+                }
+            };
+
+            function setLanguage(lang) {
+                document.getElementById('student-hero-title').innerHTML = translations[lang].studentHeroTitle;
+                document.getElementById('student-hero-desc').innerHTML = translations[lang].studentHeroDesc;
+                document.getElementById('deals-title').innerHTML = translations[lang].dealsTitle;
+                // Filter button translations
+                document.getElementById('filter-all').innerHTML = translations[lang].filterAll;
+                document.getElementById('filter-restaurant').innerHTML = translations[lang].filterRestaurant;
+                document.getElementById('filter-bar').innerHTML = translations[lang].filterBar;
+                document.getElementById('filter-fitness').innerHTML = translations[lang].filterFitness;
+                document.getElementById('filter-cinema').innerHTML = translations[lang].filterCinema;
+                document.getElementById('filter-shop').innerHTML = translations[lang].filterShop;
+                document.getElementById('filter-care').innerHTML = translations[lang].filterCare;
+                document.getElementById('filter-coffee').innerHTML = translations[lang].filterCoffee;
+                document.getElementById('filter-vegan').innerHTML = translations[lang].filterVegan;
+                document.getElementById('filter-takeaway').innerHTML = translations[lang].filterTakeaway;
+                document.getElementById('filter-reset').innerHTML = translations[lang].filterReset;
+                // Deal translations
+                for (let i = 1; i <= 7; i++) {
+                    if (document.getElementById(`deal${i}-title`)) {
+                        document.getElementById(`deal${i}-title`).innerHTML = translations[lang][`deal${i}Title`];
+                        document.getElementById(`deal${i}-badge`).innerHTML = translations[lang][`deal${i}Badge`];
+                        document.getElementById(`deal${i}-desc`).innerHTML = translations[lang][`deal${i}Desc`];
+                        document.getElementById(`deal${i}-link`).innerHTML = translations[lang][`deal${i}Link`];
+                    }
+                }
+                document.documentElement.lang = lang;
+            }
+
+            document.getElementById('nl-btn').addEventListener('click', function() {
+                setLanguage('nl');
+            });
+            document.getElementById('en-btn').addEventListener('click', function() {
+                setLanguage('en');
+            });
+
+            // Filtering logic (multi-select)
+            const filterButtons = Array.from(document.querySelectorAll('.deals-filter button:not(.reset-btn)'));
+            const resetButton = document.getElementById('filter-reset');
+            const dealCards = Array.from(document.querySelectorAll('.deal-card'));
+            const dealsGrid = document.getElementById('deals-list');
+            let selectedCategories = new Set(['all']);
+
+            function updateFilters() {
+                // If 'all' is selected, show all and set only 'all' as active
+                if (selectedCategories.has('all') || selectedCategories.size === 0) {
+                    selectedCategories = new Set(['all']);
+                    filterButtons.forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.category === 'all');
+                    });
+                    dealCards.forEach(card => card.style.display = '');
+                } else {
+                    filterButtons.forEach(btn => {
+                        btn.classList.toggle('active', selectedCategories.has(btn.dataset.category));
+                    });
+                    dealCards.forEach(card => {
+                        // Card can have multiple categories (space separated)
+                        const cardCats = card.getAttribute('data-category').split(' ');
+                        // Show if any selected category matches
+                        const show = [...selectedCategories].some(cat => cardCats.includes(cat));
+                        card.style.display = show ? '' : 'none';
+                    });
+                }
+                // Remove single-card centering: always left-aligned
+                dealsGrid.classList.remove('single-card');
+            }
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const cat = this.getAttribute('data-category');
+                    if (cat === 'all') {
+                        selectedCategories = new Set(['all']);
+                    } else {
+                        if (selectedCategories.has('all')) selectedCategories.delete('all');
+                        if (selectedCategories.has(cat)) {
+                            selectedCategories.delete(cat);
+                        } else {
+                            selectedCategories.add(cat);
+                        }
+                        // If none selected, fallback to 'all'
+                        if (selectedCategories.size === 0) selectedCategories.add('all');
+                    }
+                    updateFilters();
+                });
+            });
+
+            resetButton.addEventListener('click', function() {
+                selectedCategories = new Set(['all']);
+                updateFilters();
+            });
+
+            // Initial filter state
+            updateFilters();
+        </script>
+    </body>
+    </html>

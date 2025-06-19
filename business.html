@@ -14,8 +14,9 @@
                 --surface: #fff;
                 --border: #e5e7eb;
                 --shadow: 0 2px 12px rgba(30,41,59,0.07);
-                --radius: 12px;
+                --radius: 14px;
                 --transition: 0.16s cubic-bezier(.4,0,.2,1);
+                --gradient: linear-gradient(120deg, #0ea5e9 0%, #0369a1 100%);
             }
             html, body {
                 height: 100%;
@@ -50,26 +51,28 @@
                 align-items: center;
             }
             .logo-section img {
-                height: 40px;
-                width: 40px;
-                margin-right: 0.7rem;
-                border-radius: 6px;
-                box-shadow: 0 2px 8px rgba(30,41,59,0.07);
+                height: 44px;
+                width: 44px;
+                margin-right: 0.8rem;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(30,41,59,0.09);
                 object-fit: cover;
                 border: 1px solid var(--border);
+                background: #fff;
             }
             .logo-section span {
-                color: var(--accent);
-                font-size: 1.35rem;
-                font-weight: 800;
+                color: var(--primary-dark);
+                font-size: 1.5rem;
+                font-weight: 900;
                 letter-spacing: 0.5px;
+                text-shadow: 0 2px 8px rgba(14,165,233,0.08);
             }
             nav ul {
                 display: flex;
                 list-style: none;
                 margin: 0;
                 padding: 0;
-                gap: 1.5rem;
+                gap: 1.7rem;
             }
             nav li {
                 margin: 0;
@@ -78,7 +81,7 @@
                 color: var(--accent);
                 text-decoration: none;
                 font-weight: 600;
-                font-size: 1.05rem;
+                font-size: 1.08rem;
                 padding: 0.5rem 0.2rem;
                 border-bottom: 2px solid transparent;
                 transition: color var(--transition), border-bottom var(--transition);
@@ -122,222 +125,347 @@
                 border: 1px solid var(--border);
                 display: block;
             }
+            /* HERO (blue) */
             .business-hero {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                min-height: 54vh;
-                background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
-                color: var(--accent);
-                text-align: left;
-                padding: 3.5rem 1rem 2.5rem 1rem;
-                gap: 3.5rem;
-                border-bottom: 1px solid var(--border);
+                min-height: 38vh;
+                background: var(--gradient);
+                color: #fff;
+                text-align: center;
+                padding: 5.5rem 1rem 4.5rem 1rem;
+                position: relative;
+                overflow: hidden;
+            }
+            .business-hero::before {
+                content: "";
+                position: absolute;
+                left: 0; top: 0; right: 0; bottom: 0;
+                z-index: 0;
+                opacity: 0.22;
+                background: url('data:image/svg+xml;utf8,<svg width="1920" height="400" viewBox="0 0 1920 400" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="1920" height="400" fill="none"/><g><path d="M0 350 L100 350 L100 320 L180 320 L180 350 L300 350 L300 270 L340 270 L340 350 L400 350 L400 250 L440 250 L440 350 L500 350 L500 200 L540 200 L540 350 L600 350 L600 180 L640 180 L640 350 L700 350 L700 220 L740 220 L740 350 L800 350 L800 150 L840 150 L840 350 L900 350 L900 100 L940 100 L940 350 L1000 350 L1000 180 L1040 180 L1040 350 L1100 350 L1100 220 L1140 220 L1140 350 L1200 350 L1200 200 L1240 200 L1240 350 L1300 350 L1300 250 L1340 250 L1340 350 L1400 350 L1400 270 L1440 270 L1440 350 L1500 350 L1500 320 L1580 320 L1580 350 L1700 350 L1700 300 L1740 300 L1740 350 L1920 350 L1920 400 L0 400 Z" fill="%230369a1"/><rect x="900" y="60" width="40" height="40" fill="%230ea5e9"/><rect x="1000" y="140" width="40" height="40" fill="%230ea5e9"/><rect x="1200" y="160" width="40" height="40" fill="%230ea5e9"/><rect x="800" y="110" width="40" height="40" fill="%230ea5e9"/></g></svg>') bottom center/cover no-repeat;
             }
             .business-hero-content {
-                max-width: 540px;
+                max-width: 600px;
+                position: relative;
+                z-index: 1;
             }
             .business-hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.8rem;
                 font-weight: 900;
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
                 letter-spacing: 0.5px;
-                color: var(--primary-dark);
+                color: #fff;
+                text-shadow: 0 2px 12px rgba(30,41,59,0.13);
             }
             .business-hero p {
-                font-size: 1.18rem;
-                margin-bottom: 2.2rem;
+                font-size: 1.32rem;
+                margin-bottom: 0;
+                color: #e0f2fe;
+                line-height: 1.7;
+                text-shadow: 0 2px 8px rgba(30,41,59,0.10);
+            }
+            /* NEW: White section for counters and CTA */
+            .business-counters-section {
+                background: var(--surface);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+                max-width: 1100px;
+                margin: -3.5rem auto 2.5rem auto;
+                padding: 3.5rem 2.5rem 3.5rem 2.5rem;
+                position: relative;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .business-stats {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2.2rem;
+                margin-bottom: 2.5rem;
+                margin-top: 0;
+                justify-items: stretch;
+                align-items: stretch;
+                width: 100%;
+                max-width: 900px;
+            }
+            .business-stat-card {
+                background: #e0f2fe;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(30,41,59,0.07);
+                padding: 1.5rem 1rem;
+                min-width: 0;
+                text-align: center;
+                border: 1px solid var(--border);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 120px;
+            }
+            .business-stat-card i {
+                font-size: 2.1rem;
+                color: var(--primary);
+                margin-bottom: 0.3rem;
+            }
+            .business-stat-number {
+                font-size: 1.65rem;
+                font-weight: 900;
+                color: var(--primary-dark);
+                margin-bottom: 0.1rem;
+                letter-spacing: 0.5px;
+            }
+            .business-stat-label {
+                font-size: 1.08rem;
                 color: #334155;
-                line-height: 1.6;
+                font-weight: 600;
             }
             .cta-btn {
                 background: var(--primary);
                 color: #fff;
                 border: none;
                 border-radius: var(--radius);
-                padding: 1rem 2.4rem;
-                font-size: 1.08rem;
-                font-weight: 700;
+                padding: 1.1rem 3.2rem;
+                font-size: 1.18rem;
+                font-weight: 800;
                 cursor: pointer;
-                transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+                transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform 0.13s;
                 text-decoration: none;
                 text-align: center;
-                box-shadow: 0 2px 8px rgba(30,41,59,0.07);
+                box-shadow: 0 2px 12px rgba(30,41,59,0.10);
                 letter-spacing: 0.2px;
             }
             .cta-btn:hover, .cta-btn:focus {
                 background: var(--primary-dark);
                 color: #fff;
-                box-shadow: 0 4px 16px rgba(30,41,59,0.10);
+                box-shadow: 0 4px 18px rgba(30,41,59,0.13);
+                transform: translateY(-2px) scale(1.03);
             }
-            .business-hero-image {
-                flex: 0 0 320px;
-                max-width: 320px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .business-hero-image img {
-                width: 100%;
-                border-radius: 14px;
-                box-shadow: 0 6px 32px rgba(30,41,59,0.13);
-                border: 2px solid var(--border);
-                object-fit: cover;
-            }
-            .business-stats {
-                display: flex;
-                gap: 2.5rem;
-                margin-bottom: 2.5rem;
-                margin-top: 1.5rem;
-                flex-wrap: wrap;
-                justify-content: flex-start;
-            }
-            .business-stat-card {
-                background: #e0f2fe;
-                border-radius: 10px;
-                box-shadow: 0 2px 8px rgba(30,41,59,0.07);
-                padding: 1.1rem 1.3rem;
-                min-width: 180px;
-                text-align: center;
-                border: 1px solid var(--border);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            .business-stat-card i {
-                font-size: 2.1rem;
-                color: var(--primary);
-                margin-bottom: 0.5rem;
-            }
-            .business-stat-number {
-                font-size: 2.1rem;
-                font-weight: 900;
-                color: var(--primary-dark);
-                margin-bottom: 0.2rem;
-                letter-spacing: 1px;
-            }
-            .business-stat-label {
-                font-size: 1.05rem;
-                color: #334155;
-                font-weight: 600;
-            }
+            /* --- NEW: Attractive Benefits Section --- */
             .business-section {
-                max-width: 900px;
-                margin: 2.5rem auto;
+                max-width: 1100px;
+                margin: 3.5rem auto;
                 background: var(--surface);
                 border-radius: var(--radius);
                 box-shadow: var(--shadow);
-                padding: 2.5rem 2rem;
+                padding: 3.5rem 3rem;
                 color: #334155;
-                font-size: 1.11rem;
+                font-size: 1.13rem;
             }
             .business-section h2 {
                 color: var(--primary-dark);
-                font-size: 1.5rem;
-                font-weight: 800;
+                font-size: 2rem;
+                font-weight: 900;
                 margin-top: 0;
-                margin-bottom: 1.2rem;
+                margin-bottom: 2.2rem;
                 text-align: center;
+                letter-spacing: 0.2px;
             }
             .business-benefits {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 2rem;
+                gap: 2.7rem;
                 justify-content: center;
-                margin-bottom: 2.5rem;
+                margin-bottom: 3.2rem;
             }
             .business-benefit-card {
-                background: #f1f5f9;
-                border-radius: 10px;
-                box-shadow: 0 2px 8px rgba(30,41,59,0.07);
-                padding: 1.3rem 1.1rem;
-                width: 250px;
+                background: linear-gradient(135deg, #e0f2fe 60%, #fff 100%);
+                border-radius: 18px;
+                box-shadow: 0 6px 32px rgba(14,165,233,0.11), 0 2px 8px rgba(30,41,59,0.07);
+                padding: 2.7rem 1.7rem 2.2rem 1.7rem;
+                width: 290px;
                 text-align: center;
-                border: 1px solid var(--border);
+                border: 2px solid var(--primary);
+                position: relative;
+                overflow: visible;
+                transition: box-shadow 0.18s, transform 0.13s;
+            }
+            .business-benefit-card:hover {
+                box-shadow: 0 12px 36px rgba(14,165,233,0.18), 0 4px 18px rgba(30,41,59,0.13);
+                transform: translateY(-6px) scale(1.045);
+                z-index: 2;
+            }
+            .benefit-icon-circle {
+                width: 72px;
+                height: 72px;
+                background: linear-gradient(135deg, #0ea5e9 70%, #0369a1 100%);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 1.1rem auto;
+                box-shadow: 0 4px 18px rgba(14,165,233,0.13);
+                border: 3px solid #fff;
+                position: absolute;
+                top: -36px;
+                left: 50%;
+                transform: translateX(-50%);
             }
             .business-benefit-card i {
-                font-size: 2.1rem;
-                color: var(--primary);
-                margin-bottom: 0.7rem;
+                font-size: 2.4rem;
+                color: #fff;
+                text-shadow: 0 2px 8px rgba(30,41,59,0.13);
             }
             .business-benefit-card h3 {
-                font-size: 1.08rem;
+                font-size: 1.28rem;
                 color: var(--primary-dark);
-                margin: 0.3rem 0 0.5rem 0;
-                font-weight: 700;
+                margin: 2rem 0 0.7rem 0;
+                font-weight: 800;
+                letter-spacing: 0.2px;
             }
             .business-benefit-card p {
-                font-size: 1rem;
+                font-size: 1.11rem;
+                color: #475569;
+                margin: 0;
+                line-height: 1.6;
+            }
+            .business-benefit-card::after {
+                content: '';
+                display: block;
+                width: 60px;
+                height: 4px;
+                border-radius: 2px;
+                background: linear-gradient(90deg, #0ea5e9 0%, #0369a1 100%);
+                margin: 1.2rem auto 0 auto;
+            }
+            /* --- NEW: How It Works Section --- */
+            .how-it-works-section {
+                max-width: 1100px;
+                margin: 3.5rem auto;
+                background: #e0f2fe;
+                border-radius: var(--radius);
+                box-shadow: 0 4px 18px rgba(14,165,233,0.13);
+                padding: 3rem 2.5rem;
+                color: #334155;
+            }
+            .how-it-works-title {
+                text-align: center;
+                font-size: 1.7rem;
+                font-weight: 900;
+                color: var(--primary-dark);
+                margin-bottom: 2.2rem;
+            }
+            .how-steps {
+                display: flex;
+                justify-content: space-between;
+                gap: 2.5rem;
+                flex-wrap: wrap;
+            }
+            .how-step {
+                flex: 1 1 220px;
+                min-width: 220px;
+                max-width: 320px;
+                background: #fff;
+                border-radius: 14px;
+                box-shadow: 0 2px 12px rgba(30,41,59,0.07);
+                padding: 2rem 1.2rem 1.5rem 1.2rem;
+                text-align: center;
+                margin: 0 auto;
+                position: relative;
+            }
+            .how-step .step-number {
+                width: 38px;
+                height: 38px;
+                background: var(--primary);
+                color: #fff;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.3rem;
+                font-weight: 900;
+                position: absolute;
+                top: -19px;
+                left: 50%;
+                transform: translateX(-50%);
+                box-shadow: 0 2px 8px rgba(14,165,233,0.13);
+                border: 2px solid #fff;
+            }
+            .how-step i {
+                font-size: 2rem;
+                color: var(--primary-dark);
+                margin-bottom: 0.7rem;
+                margin-top: 1.2rem;
+            }
+            .how-step h4 {
+                font-size: 1.13rem;
+                font-weight: 800;
+                margin: 1.1rem 0 0.5rem 0;
+                color: var(--primary-dark);
+            }
+            .how-step p {
+                font-size: 1.01rem;
                 color: #475569;
                 margin: 0;
             }
-            .business-contact {
+            /* New List Business Section */
+            .list-business-section {
+                max-width: 800px;
+                margin: 3.5rem auto 0 auto;
+                background: #e0f2fe;
+                border-radius: 18px;
+                box-shadow: 0 4px 18px rgba(14,165,233,0.13);
+                padding: 3rem 2rem 3rem 2rem;
                 text-align: center;
-                margin-top: 2.5rem;
             }
-            .business-contact a.cta-btn {
-                padding: 0.7rem 2.2rem;
-                font-size: 1.05rem;
-            }
-            .business-contact p {
-                margin-top: 1.2rem;
-                color: #64748b;
-                font-size: 1rem;
-            }
-            footer {
-                background: #f1f5f9;
-                padding: 2rem 0 1rem 0;
-                text-align: center;
-                color: #64748b;
-                font-size: 1rem;
-                margin-top: 3rem;
-                border-top: 1px solid var(--border);
-            }
-            .footer-links {
-                margin-bottom: 0.7rem;
-            }
-            .footer-links a {
-                color: var(--primary);
-                text-decoration: none;
-                margin: 0 0.5rem;
-                font-weight: 600;
-            }
-            .footer-links a:hover, .footer-links a:focus {
-                text-decoration: underline;
-            }
-            .footer-socials a {
-                color: var(--primary);
-                margin: 0 0.5rem;
-                font-size: 1.25rem;
-                transition: color var(--transition);
-            }
-            .footer-socials a:hover, .footer-socials a:focus {
+            .list-business-section h2 {
                 color: var(--primary-dark);
+                font-size: 1.6rem;
+                font-weight: 900;
+                margin-bottom: 1.3rem;
             }
-            @media (max-width: 1100px) {
-                .business-hero {
-                    flex-direction: column;
-                    text-align: center;
-                    gap: 2rem;
-                }
-                .business-hero-content {
-                    max-width: 100%;
+            .list-business-section p {
+                color: #334155;
+                font-size: 1.13rem;
+                margin-bottom: 2.2rem;
+            }
+            .list-business-section .cta-btn {
+                font-size: 1.18rem;
+                padding: 1.1rem 3.2rem;
+                font-weight: 800;
+                border-radius: 14px;
+            }
+            /* Responsive styles */
+            @media (max-width: 1200px) {
+                .business-section, .how-it-works-section, .business-counters-section {
+                    max-width: 98vw;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
                 }
                 .business-stats {
-                    justify-content: center;
+                    max-width: 98vw;
+                }
+            }
+            @media (max-width: 900px) {
+                .business-benefit-card {
+                    width: 95vw;
+                    max-width: 340px;
+                }
+                .how-steps {
+                    flex-direction: column;
+                    gap: 1.5rem;
                 }
             }
             @media (max-width: 700px) {
-                .business-section {
+                .business-section, .how-it-works-section {
                     padding: 1.2rem 0.5rem;
                 }
                 .business-benefit-card {
                     width: 95vw;
                     max-width: 320px;
                 }
+                .list-business-section {
+                    padding: 1.2rem 0.5rem 1.7rem 0.5rem;
+                }
+                .business-counters-section {
+                    padding: 1.2rem 0.5rem;
+                }
                 .business-stats {
-                    gap: 1rem;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1.2rem;
                 }
             }
             @media (max-width: 600px) {
@@ -348,19 +476,102 @@
                     height: auto;
                 }
                 .business-hero {
-                    padding: 2rem 0.5rem 1.5rem 0.5rem;
+                    padding: 2.2rem 0.5rem 1.7rem 0.5rem;
                 }
                 .nav-actions {
                     flex-direction: column;
                     gap: 0.5rem;
                 }
-                .business-hero-image {
-                    max-width: 90vw;
-                }
                 .business-stats {
-                    flex-direction: column;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0.7rem;
+                    max-width: 98vw;
+                }
+                .business-stat-card {
+                    height: 80px;
+                    padding: 0.7rem 0.3rem;
+                }
+                .business-stat-number {
+                    font-size: 1.05rem;
+                }
+                .business-stat-label {
+                    font-size: 0.85rem;
+                }
+                .business-benefits {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1.1rem;
+                    margin-bottom: 2.2rem;
+                }
+                .business-benefit-card {
+                    width: 100%;
+                    max-width: 100%;
+                    min-width: 0;
+                    margin: 0;
+                    padding: 2.2rem 0.7rem 1.7rem 0.7rem;
+                }
+                .benefit-icon-circle {
+                    width: 54px;
+                    height: 54px;
+                    top: -27px;
+                }
+                .business-benefit-card h3 {
+                    margin-top: 1.3rem;
+                    font-size: 1.07rem;
+                }
+                .business-benefit-card p {
+                    font-size: 0.97rem;
+                }
+                .business-benefit-card::after {
+                    width: 40px;
+                    margin-top: 0.8rem;
+                }
+                .how-step {
+                    min-width: 0;
+                    max-width: 100%;
+                    padding: 1.5rem 0.5rem 1.2rem 0.5rem;
+                }
+            }
+            @media (max-width: 430px) {
+                .business-benefits {
+                    grid-template-columns: 1fr;
                     gap: 1rem;
                 }
+                .business-benefit-card {
+                    padding: 2.2rem 0.5rem 1.7rem 0.5rem;
+                }
+            }
+            footer {
+                text-align: center;
+                padding: 2.2rem 1rem 1.2rem 1rem;
+                background: #f1f5f9;
+                color: #64748b;
+                font-size: 1rem;
+                margin-top: 2.5rem;
+            }
+            .footer-links {
+                margin-bottom: 0.7rem;
+            }
+            .footer-links a {
+                color: #64748b;
+                text-decoration: none;
+                margin: 0 0.5rem;
+                font-weight: 600;
+            }
+            .footer-links a:hover {
+                color: var(--primary);
+            }
+            .footer-socials {
+                margin-bottom: 0.7rem;
+            }
+            .footer-socials a {
+                color: #64748b;
+                margin: 0 0.5rem;
+                font-size: 1.3rem;
+                transition: color 0.15s;
+            }
+            .footer-socials a:hover {
+                color: var(--primary);
             }
         </style>
         <!-- Font Awesome for social icons and deal icons -->
@@ -375,7 +586,7 @@
                 </div>
                 <ul>
                     <li><a href="main.html">Home</a></li>
-                    <li><a href="">Student</a></li>
+                    <li><a href="student.html">Student</a></li>
                     <li><a href="business.html" class="active">Business</a></li>
                     <li><a href="">About</a></li>
                 </ul>
@@ -391,6 +602,7 @@
                 </div>
             </div>
         </nav>
+        <!-- Blue hero: only title and text -->
         <div class="business-hero" id="Business">
             <div class="business-hero-content">
                 <h1 id="business-hero-title">Voor Bedrijven</h1>
@@ -398,55 +610,76 @@
                     Bereik duizenden studenten in Rotterdam en vergroot je zichtbaarheid.<br>
                     Voeg jouw deal toe en word onderdeel van hét studentenplatform van de stad!
                 </p>
-                <div class="business-stats" id="business-stats">
-                    <div class="business-stat-card">
-                        <i class="fas fa-user-graduate"></i>
-                        <span class="business-stat-number" id="students-counter">0</span>
-                        <span class="business-stat-label" id="students-label">Studenten in Rotterdam</span>
-                    </div>
-                    <div class="business-stat-card">
-                        <i class="fas fa-university"></i>
-                        <span class="business-stat-number" id="institutions-counter">0</span>
-                        <span class="business-stat-label" id="institutions-label">Onderwijsinstellingen</span>
-                    </div>
-                </div>
-                <a href="#contact" class="cta-btn" id="business-cta-btn">Deal toevoegen</a>
-            </div>
-            <div class="business-hero-image">
-                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Rotterdam City">
             </div>
         </div>
+        <!-- White section: counters and CTA -->
+        <section class="business-counters-section">
+            <div class="business-stats" id="business-stats">
+                <div class="business-stat-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <span class="business-stat-number" id="students-living-counter">0</span>
+                    <span class="business-stat-label" id="students-living-label">Studenten wonen in Rotterdam</span>
+                </div>
+                <div class="business-stat-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <span class="business-stat-number" id="students-studying-counter">0</span>
+                    <span class="business-stat-label" id="students-studying-label">Studenten studeren in Rotterdam</span>
+                </div>
+                <div class="business-stat-card">
+                    <i class="fas fa-university"></i>
+                    <span class="business-stat-number" id="institutions-hbo-counter">0</span>
+                    <span class="business-stat-label" id="institutions-hbo-label">Hogescholen</span>
+                </div>
+                <div class="business-stat-card">
+                    <i class="fas fa-university"></i>
+                    <span class="business-stat-number" id="institutions-uni-counter">0</span>
+                    <span class="business-stat-label" id="institutions-uni-label">Universiteiten</span>
+                </div>
+            </div>
+            <a href="#list-business" class="cta-btn" id="business-cta-btn" onclick="event.preventDefault(); window.scrollTo({ top: document.querySelector('#list-business').offsetTop - 50, behavior: 'smooth' });">Deal toevoegen</a>
+        </section>
         <section class="business-section">
             <h2 id="business-benefits-title">Waarom samenwerken met Student Deals Rotterdam?</h2>
             <div class="business-benefits">
                 <div class="business-benefit-card">
-                    <i class="fas fa-bullhorn"></i>
+                    <div class="benefit-icon-circle">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
                     <h3 id="benefit1-title">Directe zichtbaarheid</h3>
                     <p id="benefit1-desc">Jouw deal wordt direct zichtbaar voor duizenden studenten in Rotterdam.</p>
                 </div>
                 <div class="business-benefit-card">
-                    <i class="fas fa-users"></i>
+                    <div class="benefit-icon-circle">
+                        <i class="fas fa-users"></i>
+                    </div>
                     <h3 id="benefit2-title">Gerichte doelgroep</h3>
                     <p id="benefit2-desc">Bereik studenten die actief op zoek zijn naar lokale aanbiedingen.</p>
                 </div>
                 <div class="business-benefit-card">
-                    <i class="fas fa-chart-line"></i>
+                    <div class="benefit-icon-circle">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     <h3 id="benefit3-title">Meer omzet</h3>
                     <p id="benefit3-desc">Trek nieuwe klanten aan en verhoog je omzet met exclusieve studentendeals.</p>
                 </div>
                 <div class="business-benefit-card">
-                    <i class="fas fa-handshake"></i>
+                    <div class="benefit-icon-circle">
+                        <i class="fas fa-handshake"></i>
+                    </div>
                     <h3 id="benefit4-title">Eenvoudige samenwerking</h3>
                     <p id="benefit4-desc">Aanmelden is gratis en laagdrempelig. Wij helpen je graag verder!</p>
                 </div>
             </div>
-            <div class="business-contact" id="contact">
-                <a href="mailto:info@studentdealsrotterdam.nl?subject=Nieuwe%20deal%20toevoegen" class="cta-btn" id="business-contact-btn">Neem contact op</a>
-                <p id="business-contact-desc">
-                    Of stuur direct een e-mail naar <a href="mailto:info@studentdealsrotterdam.nl">info@studentdealsrotterdam.nl</a>.<br>
-                    Wij nemen zo snel mogelijk contact met je op!
-                </p>
-            </div>
+        </section>
+        <!-- New List Business Section -->
+        <section class="list-business-section" id="list-business">
+            <h2 id="list-business-title">Zet jouw bedrijf op de kaart</h2>
+            <p id="list-business-desc">
+                Wil je jouw bedrijf onder de aandacht brengen bij studenten in Rotterdam? Klik op de knop hieronder om je bedrijf eenvoudig aan te melden en je eigen deal te plaatsen.
+            </p>
+            <a href="join.html" class="cta-btn" id="list-business-btn">
+                Bedrijf aanmelden
+            </a>
         </section>
         <footer>
             <div class="footer-links">
@@ -458,7 +691,7 @@
                 <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 <a href="mailto:info@studentdealsrotterdam.nl" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
             </div>
-            <p style="margin-top:1.2rem;">&copy; 2023 Student Deals Rotterdam</p>
+            <p style="margin-top:1.2rem;">&copy; 2025 Student Deals Rotterdam</p>
         </footer>
         <script>
             // Simple translation dictionary
@@ -476,12 +709,13 @@
                     benefit3Desc: "Trek nieuwe klanten aan en verhoog je omzet met exclusieve studentendeals.",
                     benefit4Title: "Eenvoudige samenwerking",
                     benefit4Desc: "Aanmelden is gratis en laagdrempelig. Wij helpen je graag verder!",
-                    businessContactBtn: "Neem contact op",
-                    businessContactDesc: "Of stuur direct een e-mail naar <a href=\"mailto:info@studentdealsrotterdam.nl\">info@studentdealsrotterdam.nl</a>.<br>Wij nemen zo snel mogelijk contact met je op!",
-                    studentsLabel: "Studenten in Rotterdam",
-                    institutionsLabel: "Onderwijsinstellingen",
-                    dealsLabel: "Actieve deals",
-                    reachLabel: "Gem. maandelijkse bereik"
+                    studentsLivingLabel: "Studenten wonen in Rotterdam",
+                    studentsStudyingLabel: "Studenten studeren in Rotterdam",
+                    institutionsHboLabel: "Hogescholen",
+                    institutionsUniLabel: "Universiteiten",
+                    listBusinessTitle: "Zet jouw bedrijf op de kaart",
+                    listBusinessDesc: "Wil je jouw bedrijf onder de aandacht brengen bij studenten in Rotterdam? Klik op de knop hieronder om je bedrijf eenvoudig aan te melden en je eigen deal te plaatsen.",
+                    listBusinessBtn: "Bedrijf aanmelden"
                 },
                 en: {
                     businessHeroTitle: "For Businesses",
@@ -496,12 +730,13 @@
                     benefit3Desc: "Attract new customers and increase your revenue with exclusive student deals.",
                     benefit4Title: "Easy collaboration",
                     benefit4Desc: "Signing up is free and easy. We are happy to help you!",
-                    businessContactBtn: "Contact us",
-                    businessContactDesc: "Or send an email directly to <a href=\"mailto:info@studentdealsrotterdam.nl\">info@studentdealsrotterdam.nl</a>.<br>We will get back to you as soon as possible!",
-                    studentsLabel: "Students in Rotterdam",
-                    institutionsLabel: "Educational institutions",
-                    dealsLabel: "Active deals",
-                    reachLabel: "Avg. monthly reach"
+                    studentsLivingLabel: "Students living in Rotterdam",
+                    studentsStudyingLabel: "Students studying in Rotterdam",
+                    institutionsHboLabel: "Universities of applied sciences",
+                    institutionsUniLabel: "Universities",
+                    listBusinessTitle: "Put your business on the map",
+                    listBusinessDesc: "Want to promote your business to students in Rotterdam? Click the button below to easily sign up and list your own deal.",
+                    listBusinessBtn: "List your business"
                 }
             };
 
@@ -518,12 +753,13 @@
                 document.getElementById('benefit3-desc').innerHTML = translations[lang].benefit3Desc;
                 document.getElementById('benefit4-title').innerHTML = translations[lang].benefit4Title;
                 document.getElementById('benefit4-desc').innerHTML = translations[lang].benefit4Desc;
-                document.getElementById('business-contact-btn').innerHTML = translations[lang].businessContactBtn;
-                document.getElementById('business-contact-desc').innerHTML = translations[lang].businessContactDesc;
-                document.getElementById('students-label').innerHTML = translations[lang].studentsLabel;
-                document.getElementById('institutions-label').innerHTML = translations[lang].institutionsLabel;
-                document.getElementById('deals-label').innerHTML = translations[lang].dealsLabel;
-                document.getElementById('reach-label').innerHTML = translations[lang].reachLabel;
+                document.getElementById('students-living-label').innerHTML = translations[lang].studentsLivingLabel;
+                document.getElementById('students-studying-label').innerHTML = translations[lang].studentsStudyingLabel;
+                document.getElementById('institutions-hbo-label').innerHTML = translations[lang].institutionsHboLabel;
+                document.getElementById('institutions-uni-label').innerHTML = translations[lang].institutionsUniLabel;
+                document.getElementById('list-business-title').innerHTML = translations[lang].listBusinessTitle;
+                document.getElementById('list-business-desc').innerHTML = translations[lang].listBusinessDesc;
+                document.getElementById('list-business-btn').innerHTML = translations[lang].listBusinessBtn;
                 document.documentElement.lang = lang;
             }
 
@@ -552,20 +788,20 @@
                 window.requestAnimationFrame(step);
             }
 
-            // Example stats (update as needed)
+            // Updated stats
             const stats = {
-                students: 112000, // Source: CBS, approx. 2023
-                institutions: 9,  // Erasmus, Hogeschool Rotterdam, Codarts, etc.
-                deals: 120,       // Example number, update as needed
-                reach: 35000      // Example monthly reach, update as needed
+                studentsLiving: 40859,
+                studentsStudying: 70255,
+                institutionsHbo: 15,
+                institutionsUni: 1
             };
 
             // Animate on load
             window.addEventListener('DOMContentLoaded', function() {
-                animateCounter('students-counter', 2000, stats.students, 1800, "");
-                animateCounter('institutions-counter', 0, stats.institutions, 900, "");
-                animateCounter('deals-counter', 0, stats.deals, 1200, "");
-                animateCounter('reach-counter', 0, stats.reach, 1500, "");
+                animateCounter('students-living-counter', 0, stats.studentsLiving, 1200, "");
+                animateCounter('students-studying-counter', 0, stats.studentsStudying, 1200, "");
+                animateCounter('institutions-hbo-counter', 0, stats.institutionsHbo, 900, "");
+                animateCounter('institutions-uni-counter', 0, stats.institutionsUni, 900, "");
             });
         </script>
     </body>

@@ -444,6 +444,33 @@
                 text-decoration: underline;
                 color: var(--primary-dark);
             }
+            /* Button under deals */
+            .more-deals-btn-wrapper {
+                display: flex;
+                justify-content: center;
+                margin-top: 2.5rem;
+            }
+            .more-deals-btn {
+                background: var(--primary);
+                color: #fff;
+                border: none;
+                border-radius: var(--radius);
+                padding: 1rem 2.4rem;
+                font-size: 1.08rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+                text-decoration: none;
+                text-align: center;
+                box-shadow: 0 2px 8px rgba(30,41,59,0.07);
+                letter-spacing: 0.2px;
+                display: inline-block;
+            }
+            .more-deals-btn:hover, .more-deals-btn:focus {
+                background: var(--primary-dark);
+                color: #fff;
+                box-shadow: 0 4px 16px rgba(30,41,59,0.10);
+            }
             /* FOOTER */
             footer {
                 background: #f1f5f9;
@@ -565,9 +592,9 @@
                 </div>
                 <ul>
                     <li><a href="">Home</a></li>
-                    <li><a href="">Student</a></li>
+                    <li><a href="student.html">Student</a></li>
                     <li><a href="./business.html">Business</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="#About">About</a></li>
                 </ul>
                 <div class="nav-actions">
                     <div class="lang-switch" title="Taal / Language">
@@ -783,6 +810,10 @@
                     </div>
                 </div>
             </div>
+            <!-- Button for more deals -->
+            <div class="more-deals-btn-wrapper">
+                <a href="student.html" class="more-deals-btn" id="more-deals-btn">Meer studentendeals</a>
+            </div>
         </section>
         <section id="About">
             <h2>Over Student Deals Rotterdam</h2>
@@ -805,7 +836,7 @@
                 <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 <a href="mailto:info@studentdealsrotterdam.nl" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
             </div>
-            <p style="margin-top:1.2rem;">&copy; 2023 Student Deals Rotterdam</p>
+            <p style="margin-top:1.2rem;">&copy; 2025 Student Deals Rotterdam</p>
         </footer>
         <script>
             // Simple translation dictionary
@@ -878,6 +909,7 @@
                 document.getElementById('newsletter-email').placeholder = translations[lang].newsletterPlaceholder;
                 document.getElementById('newsletter-btn').innerHTML = translations[lang].newsletterBtn;
                 document.getElementById('newsletter-msg').innerHTML = translations[lang].newsletterMsg;
+                document.getElementById('more-deals-btn').innerHTML = lang === 'nl' ? 'Meer studentendeals' : 'More student deals';
                 document.documentElement.lang = lang;
             }
 

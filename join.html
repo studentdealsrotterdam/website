@@ -1,0 +1,799 @@
+    <!DOCTYPE html>
+    <html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bedrijf Aanmelden | Student Deals Rotterdam</title>
+        <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700;900&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --primary: #0ea5e9;
+                --primary-dark: #0369a1;
+                --accent: #1e293b;
+                --background: #f8fafc;
+                --surface: #fff;
+                --border: #e5e7eb;
+                --shadow: 0 2px 12px rgba(30,41,59,0.07);
+                --radius: 14px;
+                --transition: 0.16s cubic-bezier(.4,0,.2,1);
+                --gradient: linear-gradient(120deg, #0ea5e9 0%, #0369a1 100%);
+            }
+            html, body {
+                height: 100%;
+            }
+            body {
+                font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background: var(--background);
+                color: var(--accent);
+                min-height: 100vh;
+            }
+            nav {
+                background: var(--surface);
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow);
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+            .nav-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 2.5rem;
+                max-width: 1200px;
+                margin: 0 auto;
+                height: 72px;
+            }
+            .logo-section {
+                display: flex;
+                align-items: center;
+            }
+            .logo-section img {
+                height: 44px;
+                width: 44px;
+                margin-right: 0.8rem;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(30,41,59,0.09);
+                object-fit: cover;
+                border: 1px solid var(--border);
+                background: #fff;
+            }
+            .logo-section span {
+                color: var(--primary-dark);
+                font-size: 1.5rem;
+                font-weight: 900;
+                letter-spacing: 0.5px;
+                text-shadow: 0 2px 8px rgba(14,165,233,0.08);
+            }
+            nav ul {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                gap: 1.7rem;
+            }
+            nav li {
+                margin: 0;
+            }
+            nav a {
+                color: var(--accent);
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1.08rem;
+                padding: 0.5rem 0.2rem;
+                border-bottom: 2px solid transparent;
+                transition: color var(--transition), border-bottom var(--transition);
+            }
+            nav a:hover, nav a:focus {
+                color: var(--primary);
+                border-bottom: 2px solid var(--primary);
+            }
+            nav a.active {
+                color: var(--primary);
+                border-bottom: 2px solid var(--primary);
+            }
+            .nav-actions {
+                display: flex;
+                align-items: center;
+                gap: 1.1rem;
+            }
+            .lang-switch {
+                display: flex;
+                align-items: center;
+                gap: 0.2rem;
+            }
+            .lang-switch button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                margin: 0 0.05rem;
+                outline: none;
+                border-radius: 3px;
+                transition: box-shadow var(--transition), border var(--transition);
+            }
+            .lang-switch button:focus, .lang-switch button:active {
+                box-shadow: 0 0 0 2px var(--primary);
+                border: 1px solid var(--primary);
+            }
+            .lang-switch img {
+                width: 24px;
+                height: 16px;
+                border-radius: 2px;
+                border: 1px solid var(--border);
+                display: block;
+            }
+            .join-hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 38vh;
+                background: var(--gradient);
+                color: #fff;
+                text-align: center;
+                padding: 4rem 1rem 2.5rem 1rem;
+                border-bottom: 1px solid var(--border);
+                position: relative;
+                overflow: hidden;
+            }
+            .join-hero h1 {
+                font-size: 2.3rem;
+                font-weight: 900;
+                margin-bottom: 1.1rem;
+                letter-spacing: 0.5px;
+                color: #fff;
+                text-shadow: 0 2px 12px rgba(30,41,59,0.13);
+            }
+            .join-hero p {
+                font-size: 1.18rem;
+                margin-bottom: 1.7rem;
+                color: #e0f2fe;
+                line-height: 1.7;
+                text-shadow: 0 2px 8px rgba(30,41,59,0.10);
+            }
+            .plans-section {
+                max-width: 650px;
+                margin: 2.5rem auto 0 auto;
+                background: var(--surface);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+                padding: 2.5rem 2rem 2rem 2rem;
+                color: #334155;
+                font-size: 1.13rem;
+            }
+            .plans-title {
+                color: var(--primary-dark);
+                font-size: 1.6rem;
+                font-weight: 900;
+                margin-top: 0;
+                margin-bottom: 2rem;
+                text-align: center;
+                letter-spacing: 0.2px;
+            }
+            .custom-plan-card {
+                border-radius: 18px;
+                overflow: hidden;
+                box-shadow: 0 6px 32px rgba(14,165,233,0.11), 0 2px 8px rgba(30,41,59,0.07);
+                border: 2px solid var(--primary);
+                background: linear-gradient(135deg, #e0f2fe 60%, #fff 100%);
+                padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                transition: box-shadow 0.18s, border 0.18s;
+            }
+            .custom-plan-card:focus-within, .custom-plan-card:hover {
+                box-shadow: 0 12px 40px rgba(14,165,233,0.18), 0 2px 8px rgba(30,41,59,0.10);
+                border: 2.5px solid var(--primary-dark);
+            }
+            .custom-plan-label {
+                font-size: 1.35rem;
+                font-weight: 900;
+                color: var(--primary-dark);
+                margin-bottom: 1.5rem;
+                text-align: center;
+                letter-spacing: 0.2px;
+                text-shadow: 0 2px 8px rgba(14,165,233,0.07);
+            }
+            .plan-options-row {
+                display: flex;
+                justify-content: center;
+                align-items: stretch;
+                gap: 1.2rem;
+                margin-bottom: 1.5rem;
+                width: 100%;
+            }
+            .plan-option-btn {
+                flex: 1 1 0;
+                padding: 1.1rem 1.2rem;
+                text-align: center;
+                border: 2px solid var(--primary);
+                border-radius: 12px;
+                background: #fff;
+                color: var(--primary-dark);
+                font-size: 1.13rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background 0.18s, box-shadow 0.18s, color 0.13s, border 0.13s, transform 0.13s;
+                outline: none;
+                box-shadow: 0 2px 8px rgba(14,165,233,0.06);
+                position: relative;
+            }
+            .plan-option-btn.selected {
+                background: #bae6fd;
+                color: var(--primary);
+                border: 2.5px solid var(--primary-dark);
+                box-shadow: 0 8px 28px rgba(14,165,233,0.13);
+                transform: translateY(-2px) scale(1.03);
+                z-index: 1;
+            }
+            .plan-option-btn .plan-price {
+                display: block;
+                font-size: 1.25rem;
+                font-weight: 900;
+                color: var(--primary);
+                margin-top: 0.3rem;
+                letter-spacing: 0.2px;
+                text-shadow: 0 2px 8px rgba(14,165,233,0.07);
+            }
+            .plan-option-btn .plan-check {
+                position: absolute;
+                top: 10px;
+                right: 12px;
+                color: var(--primary-dark);
+                font-size: 1.1rem;
+                opacity: 0.85;
+                display: none;
+            }
+            .plan-option-btn.selected .plan-check {
+                display: inline;
+            }
+            .listing-options-row {
+                display: flex;
+                justify-content: center;
+                align-items: stretch;
+                gap: 1.2rem;
+                margin-bottom: 1.5rem;
+                width: 100%;
+            }
+            .listing-option-btn {
+                flex: 1 1 0;
+                padding: 1.1rem 1.2rem;
+                text-align: center;
+                border: 2px solid var(--primary);
+                border-radius: 12px;
+                background: #fff;
+                color: var(--primary-dark);
+                font-size: 1.13rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background 0.18s, box-shadow 0.18s, color 0.13s, border 0.13s, transform 0.13s;
+                outline: none;
+                box-shadow: 0 2px 8px rgba(14,165,233,0.06);
+                position: relative;
+            }
+            .listing-option-btn.selected {
+                background: #bae6fd;
+                color: var(--primary);
+                border: 2.5px solid var(--primary-dark);
+                box-shadow: 0 8px 28px rgba(14,165,233,0.13);
+                transform: translateY(-2px) scale(1.03);
+                z-index: 1;
+            }
+            .listing-option-btn .listing-check {
+                position: absolute;
+                top: 10px;
+                right: 12px;
+                color: var(--primary-dark);
+                font-size: 1.1rem;
+                opacity: 0.85;
+                display: none;
+            }
+            .listing-option-btn.selected .listing-check {
+                display: inline;
+            }
+            .plan-summary {
+                margin-bottom: 1.5rem;
+                font-size: 1.08rem;
+                color: #334155;
+                text-align: center;
+                background: #f1f5f9;
+                border-radius: 8px;
+                padding: 0.7rem 1rem;
+                box-shadow: 0 1px 4px rgba(14,165,233,0.06);
+            }
+            .plan-price {
+                font-size: 1.7rem;
+                font-weight: 900;
+                color: var(--primary);
+                margin-bottom: 0.7rem;
+            }
+            .plan-features {
+                font-size: 1.02rem;
+                color: #475569;
+                margin-bottom: 1.2rem;
+                min-height: 60px;
+                width: 100%;
+            }
+            .plan-features ul {
+                margin: 0;
+                padding: 0;
+            }
+            .plan-features li {
+                margin-bottom: 0.3rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .plan-select-btn {
+                background: var(--primary);
+                color: #fff;
+                border: none;
+                border-radius: 12px;
+                padding: 0.7rem 2rem;
+                font-size: 1.08rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform 0.13s;
+                text-decoration: none;
+                text-align: center;
+                box-shadow: 0 2px 12px rgba(30,41,59,0.10);
+                letter-spacing: 0.2px;
+                margin-top: 0.7rem;
+            }
+            .plan-select-btn:hover, .plan-select-btn:focus {
+                background: var(--primary-dark);
+                transform: translateY(-1px) scale(1.02);
+            }
+            .join-form-section {
+                max-width: 600px;
+                margin: 2.5rem auto 0 auto;
+                background: #e0f2fe;
+                border-radius: 18px;
+                box-shadow: 0 4px 18px rgba(14,165,233,0.13);
+                padding: 2.5rem 1.5rem 2.5rem 1.5rem;
+                text-align: center;
+            }
+            .join-form-section h2 {
+                color: var(--primary-dark);
+                font-size: 1.3rem;
+                font-weight: 900;
+                margin-bottom: 1.1rem;
+            }
+            .join-form {
+                display: flex;
+                flex-direction: column;
+                gap: 1.1rem;
+                align-items: stretch;
+            }
+            .join-form label {
+                text-align: left;
+                font-weight: 600;
+                color: #334155;
+                margin-bottom: 0.2rem;
+            }
+            .join-form input, .join-form textarea, .join-form select {
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                padding: 0.7rem;
+                font-size: 1rem;
+                font-family: inherit;
+                background: #fff;
+                resize: none;
+            }
+            .join-form textarea {
+                min-height: 70px;
+            }
+            .join-form .submit-btn {
+                background: var(--primary-dark);
+                color: #fff;
+                border: none;
+                border-radius: 14px;
+                padding: 1rem 2.6rem;
+                font-size: 1.13rem;
+                font-weight: 800;
+                cursor: pointer;
+                transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform 0.13s;
+                text-decoration: none;
+                text-align: center;
+                box-shadow: 0 2px 12px rgba(30,41,59,0.10);
+                letter-spacing: 0.2px;
+            }
+            .join-form .submit-btn:hover, .join-form .submit-btn:focus {
+                background: var(--primary);
+            }
+            .form-success {
+                color: var(--primary-dark);
+                font-weight: 700;
+                margin-top: 1.2rem;
+            }
+            @media (max-width: 900px) {
+                .plan-options-row, .listing-options-row {
+                    flex-direction: column;
+                    gap: 0.7rem;
+                }
+            }
+            @media (max-width: 700px) {
+                .plans-section {
+                    padding: 1.2rem 0.5rem;
+                }
+                .join-form-section {
+                    padding: 1.2rem 0.5rem 1.7rem 0.5rem;
+                }
+            }
+            @media (max-width: 600px) {
+                .nav-container {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    padding: 0 1rem;
+                    height: auto;
+                }
+                .join-hero {
+                    padding: 2.2rem 0.5rem 1.7rem 0.5rem;
+                }
+                .nav-actions {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+            }
+            footer {
+                text-align: center;
+                padding: 2.2rem 1rem 1.2rem 1rem;
+                background: #f1f5f9;
+                color: #64748b;
+                font-size: 1rem;
+                margin-top: 2.5rem;
+            }
+            .footer-links {
+                margin-bottom: 0.7rem;
+            }
+            .footer-links a {
+                color: #64748b;
+                text-decoration: none;
+                margin: 0 0.5rem;
+                font-weight: 600;
+            }
+            .footer-links a:hover {
+                color: var(--primary);
+            }
+            .footer-socials {
+                margin-bottom: 0.7rem;
+            }
+            .footer-socials a {
+                color: #64748b;
+                margin: 0 0.5rem;
+                font-size: 1.3rem;
+                transition: color 0.15s;
+            }
+            .footer-socials a:hover {
+                color: var(--primary);
+            }
+        </style>
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-section">
+                    <img src="./media/ChatGPT Image 17 jun 2025, 16_11_35.png" alt="Logo">
+                    <span>Student Deals Rotterdam</span>
+                </div>
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="student.html">Student</a></li>
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="lang-switch" title="Taal / Language">
+                        <button id="nl-btn" aria-label="Nederlands">
+                            <img src="https://flagcdn.com/nl.svg" alt="NL">
+                        </button>
+                        <button id="en-btn" aria-label="English">
+                            <img src="https://flagcdn.com/gb.svg" alt="EN">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="join-hero">
+            <h1 id="join-hero-title">Bedrijf aanmelden</h1>
+            <p id="join-hero-desc">
+                Kies het plan dat bij jouw bedrijf past en bereik direct studenten in Rotterdam.<br>
+                Vul het formulier in en zet jouw deal live!
+            </p>
+        </div>
+
+        <section class="plans-section">
+            <div class="plans-title" id="plans-title">Kies een promotieplan</div>
+            <div id="custom-plan-container"></div>
+        </section>
+
+        <section class="join-form-section" id="join-form-section" style="display:none;">
+            <h2 id="join-form-title">Vul je bedrijfsgegevens in</h2>
+            <form class="join-form" id="join-form">
+                <input type="hidden" name="plan" id="form-plan">
+                <input type="hidden" name="listing" id="form-listing">
+                <label for="company-name" id="label-company-name">Bedrijfsnaam *</label>
+                <input type="text" id="company-name" name="company" required>
+                <label for="contact-email" id="label-contact-email">Contact e-mail *</label>
+                <input type="email" id="contact-email" name="email" required>
+                <label for="deal-title" id="label-deal-title">Titel van de deal *</label>
+                <input type="text" id="deal-title" name="dealTitle" required>
+                <label for="deal-desc" id="label-deal-desc">Beschrijving van de deal *</label>
+                <textarea id="deal-desc" name="dealDesc" required></textarea>
+                <label for="category" id="label-category">Categorie *</label>
+                <select id="category" name="category" required>
+                    <option value="">Selecteer...</option>
+                    <option value="eten-drinken">Eten &amp; Drinken</option>
+                    <option value="sport">Sport &amp; Fitness</option>
+                    <option value="kleding">Kleding &amp; Mode</option>
+                    <option value="uitgaan">Uitgaan</option>
+                    <option value="overig">Overig</option>
+                </select>
+                <button type="submit" class="submit-btn" id="submit-btn">Aanmelden</button>
+            </form>
+            <div class="form-success" id="form-success" style="display:none;"></div>
+        </section>
+
+        <footer>
+            <div class="footer-links">
+                <a href="https://studentdealsrotterdam.nl/privacy">Privacybeleid</a> | 
+                <a href="https://studentdealsrotterdam.nl/algemene-voorwaarden">Algemene Voorwaarden</a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/studentdealsrotterdam" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="mailto:info@studentdealsrotterdam.nl" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="margin-top:1.2rem;">&copy; 2025 Student Deals Rotterdam</p>
+        </footer>
+        <script>
+            // Payment plan and listing options
+            const planDurations = [
+                { id: '7', label: { nl: '7 dagen', en: '7 days' }, price: '€19' },
+                { id: '14', label: { nl: '14 dagen', en: '14 days' }, price: '€29' },
+                { id: '30', label: { nl: '30 dagen', en: '30 days' }, price: '€49' }
+            ];
+            const listingTypes = [
+                { id: 'default', label: { nl: 'Standaard', en: 'Default' }, features: { nl: 'Standaard positie', en: 'Standard position' } },
+                { id: 'homepage', label: { nl: 'Homepage-listing', en: 'Homepage listing' }, features: { nl: 'Uitgelicht op homepage', en: 'Featured on homepage' } }
+            ];
+
+            // Simple translation dictionary
+            const translations = {
+                nl: {
+                    joinHeroTitle: "Bedrijf aanmelden",
+                    joinHeroDesc: "Kies het plan dat bij jouw bedrijf past en bereik direct studenten in Rotterdam.<br>Vul het formulier in en zet jouw deal live!",
+                    plansTitle: "Kies een promotieplan",
+                    customPlanLabel: "Stel je plan samen",
+                    durationLabel: "Duur",
+                    listingLabel: "Listing",
+                    planSummary: "Je hebt gekozen voor <b>{duration}</b> en <b>{listing}</b>.",
+                    joinFormTitle: "Vul je bedrijfsgegevens in",
+                    labelCompanyName: "Bedrijfsnaam *",
+                    labelContactEmail: "Contact e-mail *",
+                    labelDealTitle: "Titel van de deal *",
+                    labelDealDesc: "Beschrijving van de deal *",
+                    labelCategory: "Categorie *",
+                    selectCategory: "Selecteer...",
+                    submitBtn: "Aanmelden",
+                    formSuccess: "Bedankt voor je aanmelding! We nemen snel contact met je op.",
+                    chooseThisPlan: "Kies dit plan",
+                    categories: [
+                        { value: "eten-drinken", label: "Eten & Drinken" },
+                        { value: "sport", label: "Sport & Fitness" },
+                        { value: "kleding", label: "Kleding & Mode" },
+                        { value: "uitgaan", label: "Uitgaan" },
+                        { value: "overig", label: "Overig" }
+                    ]
+                },
+                en: {
+                    joinHeroTitle: "List your business",
+                    joinHeroDesc: "Choose the plan that fits your business and reach students in Rotterdam instantly.<br>Fill in the form and get your deal live!",
+                    plansTitle: "Choose a promotion plan",
+                    customPlanLabel: "Customize plan",
+                    durationLabel: "Duration",
+                    listingLabel: "Listing",
+                    planSummary: "You have chosen <b>{duration}</b> and <b>{listing}</b>.",
+                    joinFormTitle: "Enter your business details",
+                    labelCompanyName: "Business name *",
+                    labelContactEmail: "Contact e-mail *",
+                    labelDealTitle: "Deal title *",
+                    labelDealDesc: "Deal description *",
+                    labelCategory: "Category *",
+                    selectCategory: "Select...",
+                    submitBtn: "Submit",
+                    formSuccess: "Thank you for your submission! We will contact you soon.",
+                    chooseThisPlan: "Choose this plan",
+                    categories: [
+                        { value: "eten-drinken", label: "Food & Drinks" },
+                        { value: "sport", label: "Sports & Fitness" },
+                        { value: "kleding", label: "Clothing & Fashion" },
+                        { value: "uitgaan", label: "Going Out" },
+                        { value: "overig", label: "Other" }
+                    ]
+                }
+            };
+
+            let currentLang = 'nl';
+            let selectedDuration = planDurations[0].id;
+            let selectedListing = listingTypes[0].id;
+
+            function renderCustomPlan() {
+                const container = document.getElementById('custom-plan-container');
+                container.innerHTML = '';
+                const card = document.createElement('div');
+                card.className = 'custom-plan-card';
+
+                // Label
+                const label = document.createElement('div');
+                label.className = 'custom-plan-label';
+                label.id = 'custom-plan-label';
+                label.innerHTML = translations[currentLang].customPlanLabel;
+                card.appendChild(label);
+
+                // Duration options
+                const durationLabel = document.createElement('div');
+                durationLabel.style.fontWeight = '700';
+                durationLabel.style.marginBottom = '0.5rem';
+                durationLabel.innerText = translations[currentLang].durationLabel;
+                card.appendChild(durationLabel);
+
+                const durationRow = document.createElement('div');
+                durationRow.className = 'plan-options-row';
+                planDurations.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'plan-option-btn' + (selectedDuration === opt.id ? ' selected' : '');
+                    btn.innerHTML = `
+                        ${opt.label[currentLang]}
+                        <span class="plan-price">${opt.price}</span>
+                        <span class="plan-check"><i class="fa fa-check-circle"></i></span>
+                    `;
+                    btn.setAttribute('aria-pressed', selectedDuration === opt.id ? 'true' : 'false');
+                    btn.setAttribute('tabindex', '0');
+                    btn.onclick = () => {
+                        selectedDuration = opt.id;
+                        renderCustomPlan();
+                    };
+                    btn.onkeydown = (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            selectedDuration = opt.id;
+                            renderCustomPlan();
+                        }
+                    };
+                    durationRow.appendChild(btn);
+                });
+                card.appendChild(durationRow);
+
+                // Listing options
+                const listingLabel = document.createElement('div');
+                listingLabel.style.fontWeight = '700';
+                listingLabel.style.marginBottom = '0.5rem';
+                listingLabel.innerText = translations[currentLang].listingLabel;
+                card.appendChild(listingLabel);
+
+                const listingRow = document.createElement('div');
+                listingRow.className = 'listing-options-row';
+                listingTypes.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'listing-option-btn' + (selectedListing === opt.id ? ' selected' : '');
+                    btn.innerHTML = `
+                        ${opt.label[currentLang]}
+                        <br>
+                        <span style="font-size:0.98rem;color:#475569;">${opt.features[currentLang]}</span>
+                        <span class="listing-check"><i class="fa fa-check-circle"></i></span>
+                    `;
+                    btn.setAttribute('aria-pressed', selectedListing === opt.id ? 'true' : 'false');
+                    btn.setAttribute('tabindex', '0');
+                    btn.onclick = () => {
+                        selectedListing = opt.id;
+                        renderCustomPlan();
+                    };
+                    btn.onkeydown = (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            selectedListing = opt.id;
+                            renderCustomPlan();
+                        }
+                    };
+                    listingRow.appendChild(btn);
+                });
+                card.appendChild(listingRow);
+
+                // Summary
+                const summary = document.createElement('div');
+                summary.className = 'plan-summary';
+                const durationObj = planDurations.find(d => d.id === selectedDuration);
+                const listingObj = listingTypes.find(l => l.id === selectedListing);
+                summary.innerHTML = translations[currentLang].planSummary
+                    .replace('{duration}', durationObj.label[currentLang])
+                    .replace('{listing}', listingObj.label[currentLang]);
+                card.appendChild(summary);
+
+                // Features
+                const features = document.createElement('div');
+                features.className = 'plan-features';
+                let featuresList = [
+                    (currentLang === 'nl' ? 'Deal zichtbaar voor ' : 'Deal visible for ') + durationObj.label[currentLang],
+                    listingObj.features[currentLang],
+                    (currentLang === 'nl' ? 'E-mail support' : 'E-mail support')
+                ];
+                features.innerHTML = `<ul style="list-style:none;padding:0;margin:0;">
+                    ${featuresList.map(f => `<li><i class="fa fa-check" style="color:var(--primary);margin-right:7px;"></i>${f}</li>`).join('')}
+                </ul>`;
+                card.appendChild(features);
+
+                // Select button
+                const selectBtn = document.createElement('button');
+                selectBtn.className = 'plan-select-btn';
+                selectBtn.innerText = translations[currentLang].chooseThisPlan;
+                selectBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    selectPlan();
+                };
+                card.appendChild(selectBtn);
+
+                container.appendChild(card);
+            }
+
+            function selectPlan() {
+                document.getElementById('join-form-section').style.display = 'block';
+                document.getElementById('form-plan').value = selectedDuration;
+                document.getElementById('form-listing').value = selectedListing;
+                window.scrollTo({ top: document.getElementById('join-form-section').offsetTop - 40, behavior: 'smooth' });
+            }
+
+            function setLanguage(lang) {
+                currentLang = lang;
+                document.getElementById('join-hero-title').innerHTML = translations[lang].joinHeroTitle;
+                document.getElementById('join-hero-desc').innerHTML = translations[lang].joinHeroDesc;
+                document.getElementById('plans-title').innerHTML = translations[lang].plansTitle;
+                document.getElementById('join-form-title').innerHTML = translations[lang].joinFormTitle;
+                document.getElementById('label-company-name').innerHTML = translations[lang].labelCompanyName;
+                document.getElementById('label-contact-email').innerHTML = translations[lang].labelContactEmail;
+                document.getElementById('label-deal-title').innerHTML = translations[lang].labelDealTitle;
+                document.getElementById('label-deal-desc').innerHTML = translations[lang].labelDealDesc;
+                document.getElementById('label-category').innerHTML = translations[lang].labelCategory;
+                document.getElementById('submit-btn').innerHTML = translations[lang].submitBtn;
+                // Update category options
+                const catSelect = document.getElementById('category');
+                catSelect.innerHTML = `<option value="">${translations[lang].selectCategory}</option>` +
+                    translations[lang].categories.map(c => `<option value="${c.value}">${c.label}</option>`).join('');
+                document.documentElement.lang = lang;
+                renderCustomPlan();
+            }
+
+            document.getElementById('nl-btn').addEventListener('click', function() {
+                setLanguage('nl');
+            });
+            document.getElementById('en-btn').addEventListener('click', function() {
+                setLanguage('en');
+            });
+
+            // Form handling (simulate, no backend)
+            document.getElementById('join-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                document.getElementById('form-success').innerHTML = translations[currentLang].formSuccess;
+                document.getElementById('form-success').style.display = 'block';
+                document.getElementById('join-form').reset();
+                setTimeout(() => {
+                    document.getElementById('form-success').style.display = 'none';
+                }, 6000);
+            });
+
+            // Initial render
+            renderCustomPlan();
+
+            // Set initial language
+            setLanguage('nl');
+        </script>
+    </body>
+    </html>
